@@ -72,19 +72,26 @@ int main(void)
     unsigned char texto[15] = "HOLA";
     double temp[4] = {1.2, 3.2, 5.3, 11.3};
     double ubicacion[2] = {12.5, 33.5}; 
-    trama_t trama;
 
-    trama.reversa = 1;
-    trama.trama = texto;
-    trama.Temperatura = temp;
-    trama.ubicacion = ubicacion;
+    unsigned char dato_recibido[60] = {'\0'};
+ 
+    sprintf( dato_recibido, "{\"trama\": \"START\", \"paso\": [ 1.101, 20.034 ]}" );
+
+    recibir_t dato;
     
+    decodificarJSONString( dato_recibido );
+ 
+    dato.trama = trama;
+    dato.Pasos = paso;
     
-    crearJSONString(trama, cosa);
-    
-    //unsigned char cosa[] = "HOLA\n";
-    UART1_WriteBuffer(cosa,  longitudString( cosa ) );
-    //UART1_Write( longitudString(cosa) );
+    unsigned char es_lo_que_espero = equals( dato.trama, "START" );
+    if( es_lo_que_espero ){
+        TEST( "SI ES LO QUE ESPERAS PUTO!" );
+    }
+    else{
+        TEST( "NO ES LO QUE ESPERAS PUTO!" );
+
+    }
 
     while (1)
     {
