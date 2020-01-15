@@ -194,35 +194,7 @@ void UART1_SetRxInterruptHandler(void* handler)
     }
 }
 
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
-{
-    (*UART1_RxDefaultInterruptHandler)();
 
-    IFS0bits.U1RXIF = 0;
-	
-    while((U1STAbits.URXDA == 1))
-    {
-        *rxTail = U1RXREG;
-
-        // Will the increment not result in a wrap and not result in a pure collision?
-        // This is most often condition so check first
-        if ( ( rxTail    != (rxQueue + UART1_CONFIG_RX_BYTEQ_LENGTH-1)) &&
-             ((rxTail+1) != rxHead) )
-        {
-            rxTail++;
-        } 
-        else if ( (rxTail == (rxQueue + UART1_CONFIG_RX_BYTEQ_LENGTH-1)) &&
-                  (rxHead !=  rxQueue) )
-        {
-            // Pure wrap no collision
-            rxTail = rxQueue;
-        } 
-        else // must be collision
-        {
-            rxOverflowed = true;
-        }
-    }
-}
 
 void __attribute__ ((weak)) UART1_Receive_CallBack(void)
 {
