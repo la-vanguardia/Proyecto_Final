@@ -10,8 +10,11 @@
 #include <string.h>
 #include "json.h"
 #include "recepcion.h"
+#include "I2C.h"
 
 
+#define SENSOR_1 0x5A
+#define TEMPOBJ 0x07
 
 
 
@@ -21,7 +24,8 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    //unsigned char cosa[] = "{X: 12.5, Y: 63.3, Temperatura: [321.3, 365.3, 125.3], trama: \"mediciones\", reversa: true}\n"; 
+    configurarI2C();
+    
     unsigned char cosa[150] = {'\0'};
     unsigned char texto[15] = "HOLA";
     double temp[4] = {1.2, 3.2, 5.3, 11.3};
@@ -40,12 +44,34 @@ int main(void)
     
     unsigned char es_lo_que_espero = equals( dato.trama, "START" );
 
+    unsigned char datos_i2c[3] = {0};
+    
+    TEST( "HOLA ISA! " );
+    
+    iniciarI2C();
+
+    
+    iniciarComunicacion(SENSOR_1, WRITE);
+    transmitirDato( 0x1C  );
+    
+    resetearI2C();
+
+    iniciarComunicacion(SENSOR_1, READ);
+
+    datos_i2c[0] = recibirDato(1);
+    
+    TEST("DATO: ");
+    
+    UART1_Write( datos_i2c[0] );
+    
+    TEST("  FUNCIONO!");
+    
     while (1)
     {
         if( bandera_recepcion == 1){
-            bandera_recepcion = 0;
+            
             TEST( datos_recepcion_uart1 );
-
+            bandera_recepcion = 0;
         }
     
     }
