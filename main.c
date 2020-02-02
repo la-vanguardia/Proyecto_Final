@@ -5,6 +5,7 @@
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/uart1.h"
 
+#include <p33EP512GM304.h>
 #include <libpic30.h>
 #include <stdio.h>
 #include <string.h>
@@ -15,10 +16,8 @@
 
 #define SENSOR_1 0x5A
 #define TEMPOBJ 0x07
-
-
-
-
+#define MPU 0x68
+#define TESTMEM 0x75
 
 int main(void)
 {
@@ -48,23 +47,15 @@ int main(void)
     
     TEST( "HOLA ISA! " );
     
-    iniciarI2C();
-
-    
-    iniciarComunicacion(SENSOR_1, WRITE);
-    transmitirDato( 0x1C  );
-    
-    resetearI2C();
-
-    iniciarComunicacion(SENSOR_1, READ);
-
-    datos_i2c[0] = recibirDato(1);
+    recibirDatos( datos_i2c, 1, TESTMEM, MPU );
     
     TEST("DATO: ");
-    
+
     UART1_Write( datos_i2c[0] );
+
+    TEST("  FUNCIONO!");    
+  
     
-    TEST("  FUNCIONO!");
     
     while (1)
     {
