@@ -1,74 +1,82 @@
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/uart1.h"
 
+
+
+
 #include <p33EP512GM304.h>
 #include <libpic30.h>
 #include <stdio.h>
 #include <string.h>
-#include "json.h"
-#include "recepcion.h"
-#include "I2C.h"
+#include "stateMachine.h"
 
 #define SENSOR_1 0x5A
 #define TEMPOBJ 0x07
-#define MPU 0x68
-#define TESTMEM 0x75
+
+void enviarTemp( trama_t mediciones );
+
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
+{
+    IFS0bits.T1IF = 0;
+    contador++;
+    if( contador == 60 ){
+        
+        stateTemp = DECODIFICAR;
+        datos_recepcion_uart1[ ubicacion_actual ] = '\0';
+        ubicacion_actual = 0;
+        T1CONbits.TON = 0;
+    }
+}
+
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
+{
+    IFS0bits.U1RXIF = 0;
+    datos_recepcion_uart1[ ubicacion_actual ] = U1RXREG;
+    
+    ubicacion_actual++;
+    
+    contador = 0;
+    TMR1 = 0;
+    T1CONbits.TON = 1;   
+}
+
+
 
 int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-    
-    unsigned char cosa[150] = {'\0'};
-    unsigned char texto[15] = "HOLA";
-    double temp[4] = {1.2, 3.2, 5.3, 11.3};
-    double ubicacion[2] = {12.5, 33.5}; 
 
-    unsigned char dato_recibido[60] = {'\0'};
- 
-    sprintf( dato_recibido, "{\"trama\": \"START\", \"paso\": [ 1.101, 20.034 ]}" );
-
-    recibir_t dato;
+    trama_t mediciones;
+    unsigned char json[70] = {'\0'};
     
-    decodificarJSONString( dato_recibido );
- 
-    dato.trama = trama;
-    dato.Pasos = paso;
-    
-    unsigned char es_lo_que_espero = equals( dato.trama, "START" );
-
-    unsigned char datos_i2c[3] = {0};
-        
-    
-    enviarMensaje( "HOLA ISA! " );
-    
-    //recibirDatos( datos_i2c, 2, 0x07, SENSOR_1 );
-    
-    //TEST("DATO: ");
-
-    //double tempSensor = ( ((datos_i2c[1] & 0x7F ) << 8) + datos_i2c[0] )* 0.02 -273.15;
-    unsigned char mensaje[30] = {'\0'};
-    //sprintf( mensaje, "Temperatura: %.2f\n", tempSensor);
+    double ubicacion[2] = {0, 0};
+    double temp[4] = {0.0, 0.0, 0.0, 0.0};
+    unsigned char trama[50] = "START";
     
     
-    //enviarMensaje( mensaje );
-
+    mediciones.ubicacion = ubicacion;
+    mediciones.Temperatura = temp;
+    mediciones.reversa = 1;
+    mediciones.trama = trama;
     
+    double tempSensor = leerTemperatura( SENSOR_1 );
+      
     while (1)
     {
-        if( bandera_recepcion == 1){
-            enviarMensaje( datos_recepcion_uart1 );
-            bandera_recepcion = 0;
-        }
-    
+        stateMachineSensor();
     }
     return 1; 
 }
 
+void enviarTemp( trama_t mediciones){
+    unsigned char mensaje[100] = {'\0'};
+    
 
-//X: %.2f, Y: %.2f, Temperatura: [%.3f, %.3f, %.3f], 
-/**
- End of File
-*/
+    crearJSONString( mediciones, mensaje );
+
+    enviarMensaje( mensaje );
+}
+
 

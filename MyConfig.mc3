@@ -25,12 +25,12 @@
          <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
       </entry>
       <entry>
-         <string>ICD</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
-      </entry>
-      <entry>
          <string>RESET</string>
          <string>class com.microchip.mcc.mcu16.systemManager.reset.RESET</string>
+      </entry>
+      <entry>
+         <string>ICD</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
       </entry>
       <entry>
          <string>Interrupt Module</string>
@@ -41,12 +41,12 @@
          <string>class com.microchip.mcc.protocolServices.base.modules.librarymodule.LibraryModule</string>
       </entry>
       <entry>
-         <string>UART1</string>
-         <string>class com.microchip.mcc.mcu16.modules.uart.UART</string>
-      </entry>
-      <entry>
          <string>TMR1</string>
          <string>class com.microchip.mcc.mcu16.modules.tmr.TMR</string>
+      </entry>
+      <entry>
+         <string>UART1</string>
+         <string>class com.microchip.mcc.mcu16.modules.uart.UART</string>
       </entry>
    </usedClasses>
    <usedLibraries class="java.util.ArrayList">
@@ -1159,7 +1159,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR1" registerAlias="TCON"/>
-         <value>32768</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISA" settingAlias="TRISA7"/>
@@ -1203,7 +1203,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="SWTXBufferSize"/>
-         <value>8</value>
+         <value>200</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="PLLPRE" alias="17"/>
@@ -3279,7 +3279,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART1" name="SWRXBufferSize"/>
-         <value>8</value>
+         <value>200</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RA8"/>
@@ -6527,7 +6527,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR1" registerAlias="TCON" settingAlias="TON"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="RESET" registerAlias="RCON" settingAlias="SWR"/>
@@ -7160,28 +7160,28 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>ede45f0c68c3aaafc733e25105f0295d1655ef605284928cba6656d4c6bcd64b</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\interrupt_manager.h</file>
          <hash>a868ef6ab8bbe0875d3b548a6f61d208a34cb5b32e02ffd4baad371103c8d5a8</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\uart1.h</file>
-         <hash>33a949ebcc98373c95dc26ef7e256fb64de053432f07fdbff9143d9938bd1a48</hash>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>85f880c65c7c82aa07ff6e4cb8d10aa99d97e787821deaa90b9cbbe5bee8dbd5</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\reset.c</file>
          <hash>f18cff410bcd1945c47a21f141e3491a2f70d7ee79388aae1b5b5358d3ebb3e9</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\uart1.c</file>
-         <hash>46764a0bf865744a4bd76141be4b17f7d9cf8b5aeb15b961d394d486145425ca</hash>
+         <file>mcc_generated_files\uart1.h</file>
+         <hash>33a949ebcc98373c95dc26ef7e256fb64de053432f07fdbff9143d9938bd1a48</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.h</file>
          <hash>f8979a3195e3f5d1b0f113aee62bdeede4711978535c7d6f4970cc0b336b0648</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\uart1.c</file>
+         <hash>283a9d816dc08e5f87c733f4bd535d5b2dd0a28ddabda4c0b28d62a15604da1e</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\clock.c</file>
@@ -7197,43 +7197,43 @@
       </entry>
       <entry>
          <file>mcc_generated_files\tmr1.c</file>
-         <hash>c1570984ff105ad35be304ba7c8e647689b162273105b9383d701e3aa17a6596</hash>
+         <hash>7835724992f841b918c09466bf084e754d609fba011b840efca2d60d5fde81c0</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\system_types.h</file>
          <hash>c353bd7fbb25971bfc5d7172dfd6e1d449b8bc1b9cc7c11d384a0615eabb66b0</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\system.h</file>
-         <hash>557cf738085c525f8f2574a81283dc23d04b79a7a9866e78465a44fb56e472f2</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\pin_manager.c</file>
          <hash>42eefcba37c175484259cf586964eade0b6bbde512eaf18538f647002faf7fee</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files\system.h</file>
+         <hash>557cf738085c525f8f2574a81283dc23d04b79a7a9866e78465a44fb56e472f2</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\system.c</file>
-         <hash>228c1819c91782afba46836a62f0fd6f47530cf7d268ae284e222b52c8fb4203</hash>
+         <hash>e423d529c23990bfb931970b48aff9c14877a0171d181e0c2976b9d1160def4c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\traps.c</file>
          <hash>a138961d8cc6500079b009ef95eca6f1f11d248e4c5db25bc6957e89e99a09aa</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\clock.h</file>
-         <hash>f95fbfcfa87ac43e83d23db111dbfdae2438bd09ee6f01e09c230e70f3c90f8f</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\traps.h</file>
          <hash>cfdf60a7e36c23a1296ec57622f34efab9b43207af096ae1d9a8976146b974da</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>5c2afed5f62b86706e126e50a99ce43fea50f681b4ef9c2367e404a8055bfe5d</hash>
+         <file>mcc_generated_files\clock.h</file>
+         <hash>f95fbfcfa87ac43e83d23db111dbfdae2438bd09ee6f01e09c230e70f3c90f8f</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
          <hash>2f003b7549ccf70666518bda5e37665a7af92926276ed7880ed84a26e1f64705</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>5c2afed5f62b86706e126e50a99ce43fea50f681b4ef9c2367e404a8055bfe5d</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\reset.h</file>

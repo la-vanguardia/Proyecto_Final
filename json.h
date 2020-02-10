@@ -28,11 +28,6 @@ enum{
 };
 
 
-
-void WARNING();
-void TEST( unsigned char *mensaje );
-
-
 unsigned char longitudString(unsigned char *vect);
 void crearJSONString(trama_t trama, unsigned char *json);
 void decodificarJSONString(unsigned char *json);
@@ -45,15 +40,6 @@ void obtener_trama(unsigned char *Trama, unsigned char *Valores);
 void pasarVectores(unsigned char *Vector_Nuevo, unsigned char *Vector_Viejo  );
 double potencia(double numero_base, int potencia);
 
-void WARNING(){
-    unsigned char cosa333[] = "HOLA\n";
-    
-}
-
-void TEST( unsigned char *mensaje ){
-    
-}
-
 unsigned char longitudString(unsigned char *vect){
     unsigned char longitud = 0, letra; 
     letra =  vect[longitud];
@@ -64,7 +50,7 @@ unsigned char longitudString(unsigned char *vect){
 }
 
 void crearJSONString(trama_t trama, unsigned char *json){
-    sprintf(json, "{ubicacion: [%.2f, %.2f], Temperatura: [%.3f, %.3f, %.3f, %.3f], reversa: %u, trama: \"%s\"}", trama.ubicacion[0], trama.ubicacion[1], trama.Temperatura[0], trama.Temperatura[1], trama.Temperatura[2], trama.Temperatura[3], trama.reversa, trama.trama  );
+    sprintf(json, "{ubicacion: [%.2f, %.2f], temperatura: [%.3f, %.3f, %.3f, %.3f], reversa: %u, trama: \"%s\"}\n", trama.ubicacion[0], trama.ubicacion[1], trama.Temperatura[0], trama.Temperatura[1], trama.Temperatura[2], trama.Temperatura[3], trama.reversa, trama.trama  );
 }
 
 void decodificarJSONString(unsigned char *json){
