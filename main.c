@@ -1,7 +1,3 @@
-
-
-#define FCY 15000000 
-
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/uart1.h"
 
@@ -12,7 +8,6 @@
 #include "json.h"
 #include "recepcion.h"
 #include "I2C.h"
-
 
 #define SENSOR_1 0x5A
 #define TEMPOBJ 0x07
@@ -44,24 +39,26 @@ int main(void)
     unsigned char es_lo_que_espero = equals( dato.trama, "START" );
 
     unsigned char datos_i2c[3] = {0};
+        
     
-    TEST( "HOLA ISA! " );
+    enviarMensaje( "HOLA ISA! " );
     
-    recibirDatos( datos_i2c, 1, TESTMEM, MPU );
+    //recibirDatos( datos_i2c, 2, 0x07, SENSOR_1 );
     
-    TEST("DATO: ");
+    //TEST("DATO: ");
 
-    UART1_Write( datos_i2c[0] );
-
-    TEST("  FUNCIONO!");    
-  
+    //double tempSensor = ( ((datos_i2c[1] & 0x7F ) << 8) + datos_i2c[0] )* 0.02 -273.15;
+    unsigned char mensaje[30] = {'\0'};
+    //sprintf( mensaje, "Temperatura: %.2f\n", tempSensor);
     
+    
+    //enviarMensaje( mensaje );
+
     
     while (1)
     {
         if( bandera_recepcion == 1){
-            
-            TEST( datos_recepcion_uart1 );
+            enviarMensaje( datos_recepcion_uart1 );
             bandera_recepcion = 0;
         }
     

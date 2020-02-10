@@ -47,11 +47,11 @@ double potencia(double numero_base, int potencia);
 
 void WARNING(){
     unsigned char cosa333[] = "HOLA\n";
-    UART1_WriteBuffer(cosa333,  longitudString( cosa333 ) );
+    
 }
 
 void TEST( unsigned char *mensaje ){
-    UART1_WriteBuffer( mensaje, longitudString( mensaje ) );
+    
 }
 
 unsigned char longitudString(unsigned char *vect){

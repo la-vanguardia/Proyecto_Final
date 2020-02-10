@@ -92,10 +92,10 @@ void TMR1_Initialize (void)
 {
     //TMR1 0; 
     TMR1 = 0x00;
-    //Period = 0.0000099958 s; Frequency = 15206400 Hz; PR1 151; 
-    PR1 = 0x97;
-    //TCKPS 1:1; TON disabled; TSIDL disabled; TCS FOSC/2; TSYNC disabled; TGATE disabled; 
-    T1CON = 0x00;
+    //Period = 0.0008000579 s; Frequency = 7603200 Hz; PR1 6082; 
+    PR1 = 0x17C2;
+    //TCKPS 1:1; TON enabled; TSIDL disabled; TCS FOSC/2; TSYNC disabled; TGATE disabled; 
+    T1CON = 0x8000;
 
     if(TMR1_InterruptHandler == NULL)
     {
@@ -108,7 +108,6 @@ void TMR1_Initialize (void)
     tmr1_obj.timerElapsed = false;
 
 }
-
 
 
 

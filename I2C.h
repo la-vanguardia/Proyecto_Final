@@ -1,11 +1,5 @@
-
-
-   
-
 #include <xc.h>
 #include <libpic30.h>
-
-#include "mcc_generated_files/uart1.h"
 
 #define READ 1
 #define WRITE 0
@@ -24,17 +18,17 @@ unsigned char Longitud=0;
 void configurarI2C(){
     //I2C1BRG = 0x21; // Velocidad para 400KHz y 30MHz (Ecuacion 19-1)   
     
-    I2C1BRG = 0x23;
+    I2C1BRG = 0x4D;
     I2C1CONbits.I2CEN = 1;    
     IFS1bits.SI2C1IF = 0;  //Bandera de interrupcion I2C esclavo
     I2C1CONbits.DISSLW = 1;   //Desabilitar Slew Rate
     I2C1CONbits.IPMIEN = 0;
+    I2C1CONbits.SMEN = 1;
 }
 
 void iniciarComunicacion(unsigned char codigo_familia, unsigned char read){
     unsigned char codigo = ( codigo_familia<<1 ) + read;
     transmitirDato( codigo );
-    
 }
 
 void transmitirDato(unsigned char dato){
@@ -42,7 +36,11 @@ void transmitirDato(unsigned char dato){
     IFS1bits.MI2C1IF = 0; //bajo la bandera
     
     I2C1TRN = dato; //envio el dato
-    while(I2C1STATbits.ACKSTAT == 1);
+    while(I2C1STATbits.ACKSTAT == 1); //espero que baje el ackstat
+    while(IFS1bits.MI2C1IF == 1); //
+    while(I2C1STATbits.TRSTAT == 1); //espero al tr
+
+
 }
 
 void transmitirDatos(unsigned char *datos, unsigned char numero_datos, unsigned char dirreccion, unsigned char codigo_familia){
@@ -59,19 +57,16 @@ void transmitirDatos(unsigned char *datos, unsigned char numero_datos, unsigned 
 
 unsigned char recibirDato(unsigned char detener){
     unsigned char dato;
-
+    
     IFS1bits.MI2C1IF = 0; //bajo bandera
     I2C1CONbits.RCEN = 1; //habilito recepcion
     
+    
     while(IFS1bits.MI2C1IF == 1); //espero bandera
+    
     IFS1bits.MI2C1IF = 0; //bajo bandera
     while(I2C1STATbits.RBF == 0);
-
- 
     dato = I2C1RCV; //leo el dato
-    
-    UART1_Write( dato );
-
     
     if(detener == 1){
         detenerI2C();
