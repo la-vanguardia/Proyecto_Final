@@ -7,5 +7,4 @@ mcc_generated_files/uart1.h  \
 json.h  \
 recepcion.h  \
 I2C.h  \
-temperatura.h  \
-globales.h 
+temperatura.h 

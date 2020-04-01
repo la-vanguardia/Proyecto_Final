@@ -1,3 +1,5 @@
+#define FCY 20000000
+
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/uart1.h"
 
@@ -11,6 +13,7 @@
 #include "stateMachine.h"
 
 #define SENSOR_1 0x5A
+#define SENSOR_2 0x5B
 #define TEMPOBJ 0x07
 
 void enviarTemp( trama_t mediciones );
@@ -61,11 +64,18 @@ int main(void)
     mediciones.reversa = 1;
     mediciones.trama = trama;
     
-    double tempSensor = leerTemperatura( SENSOR_1 );
-      
+    
+   
+    cambiarCodigoFamilia( SENSOR_1, SENSOR_2 );
+
+    temp[0] = leerTemperatura( SENSOR_1 );
+    
+    mediciones.Temperatura = temp;
+    
+    enviarTemp( mediciones );
     while (1)
     {
-        stateMachineSensor();
+        //stateMachineSensor();
     }
     return 1; 
 }

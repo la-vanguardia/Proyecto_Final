@@ -3,6 +3,9 @@
 #include "I2C.h"
 #include "temperatura.h"
 
+#define START "Start"
+#define STOP  "Stop"
+#define CONFIG  "Config"
 
 enum states{
     ESPERAR,
@@ -12,11 +15,7 @@ enum states{
     DECODIFICAR
 };
 
-enum tramas{
-    START = "Start",
-    STOP = "Stop",
-    CONFIG = "Config"
-};
+
 
 enum tramasClasificadas{
     StartDecodificado,
@@ -27,7 +26,7 @@ enum tramasClasificadas{
 
 unsigned char stateTemp = ESPERAR;
 recibir_t jsonRecibido;
-unsigned char trama;
+unsigned char trmaUC;
 
 void stateMachineSensor();
 
@@ -65,23 +64,23 @@ void stateMachineSensor(){
 void eDecodificar(){
     decodificarJSONString( datos_recepcion_uart1 );
     jsonRecibido.Pasos = paso;
-    jsonRecibido.trama = trama;
+    jsonRecibido.trama = trmaUC;
 }
 
-void aClasificar(){
+void eClasificar(){
     unsigned char start = equals( START, jsonRecibido.trama  ), stop = equals( STOP, jsonRecibido.trama );
     unsigned char config = equals( CONFIG, jsonRecibido.trama );
     unsigned char resultado = ErrorDecodificado;
     if( start ){
         resultado = StartDecodificado;
     }
-    if( stop ){
+    else if( stop ){
         resultado = StopDecodificado;
     }
-    if( config ){
+    else if( config ){
         resultado = ConfigDecodificado;
     }
-    trama = resultado;
+    trmaUC = resultado;
 }
 
 void aDecodificar(){
@@ -89,7 +88,7 @@ void aDecodificar(){
 }
 
 void aClasificar(){
-    switch( trama ){
+    switch( trmaUC ){
         case StartDecodificado:
             aComenzarMedicion();
             break;

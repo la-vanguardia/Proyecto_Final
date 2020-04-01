@@ -10,9 +10,9 @@ void transmitirDato(unsigned char dato);
 void transmitirDatos(unsigned char *datos, unsigned char numero_datos, unsigned char dirreccion, unsigned char codigo_familia);
 unsigned char recibirDato(unsigned char detener);
 void recibirDatos(unsigned char *datos, unsigned char numero_datos, unsigned char dirreccion, unsigned char codigo_familia);
-void resetearI2C();
 void iniciarI2C();
 void detenerI2C();
+void resetearI2C();
 unsigned char Longitud=0;
 
 void configurarI2C(){
