@@ -22,5 +22,6 @@ void enviarMensaje(unsigned char *mensaje ){
     for( i=0; i<longitud_mensaje; i++ ){
         UART1_Write( mensaje[ i ] );
     }
+    UART1_Write(0x0D); //Carry return para indicar fin del mensaje
 }
 

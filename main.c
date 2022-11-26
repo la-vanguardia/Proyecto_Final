@@ -1,9 +1,10 @@
 #define FCY 20000000
+#define SENSOR_1 0x5A
+#define TEMPOBJ 0x07
+
 
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/uart1.h"
-
-
 
 
 #include <p33EP512GM304.h>
@@ -12,11 +13,9 @@
 #include <string.h>
 #include "stateMachine.h"
 
-#define SENSOR_1 0x5A
-#define SENSOR_2 0x5B
-#define TEMPOBJ 0x07
 
-void enviarTemp( trama_t mediciones );
+
+
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
 {
@@ -50,43 +49,13 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-
-    trama_t mediciones;
-    unsigned char json[70] = {'\0'};
     
-    double ubicacion[2] = {0, 0};
-    double temp[4] = {0.0, 0.0, 0.0, 0.0};
-    unsigned char trama[50] = "START";
-    
-    
-    mediciones.ubicacion = ubicacion;
-    mediciones.Temperatura = temp;
-    mediciones.reversa = 1;
-    mediciones.trama = trama;
-    
-    
-   
-    cambiarCodigoFamilia( SENSOR_1, SENSOR_2 );
-
-    temp[0] = leerTemperatura( SENSOR_1 );
-    
-    mediciones.Temperatura = temp;
-    
-    enviarTemp( mediciones );
     while (1)
     {
-        //stateMachineSensor();
+        stateMachineSensor();
     }
     return 1; 
 }
 
-void enviarTemp( trama_t mediciones){
-    unsigned char mensaje[100] = {'\0'};
-    
-
-    crearJSONString( mediciones, mensaje );
-
-    enviarMensaje( mensaje );
-}
 
 

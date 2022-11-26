@@ -10,12 +10,9 @@
 enum states{
     ESPERAR,
     MEDIR,
-    ENVIAR,
     CLASIFICAR,
     DECODIFICAR
 };
-
-
 
 enum tramasClasificadas{
     StartDecodificado,
@@ -26,19 +23,21 @@ enum tramasClasificadas{
 
 unsigned char stateTemp = ESPERAR;
 recibir_t jsonRecibido;
+
 unsigned char trmaUC;
 
 void stateMachineSensor();
 
 void eDecodificar();
 void eClasificar();
-
+void eMedir();
 
 void aDecodificar();
 void aClasificar();
 void aComenzarMedicion();
 void aFrenarMedicion(); 
 void aConfigurarMedicion();
+
 
 void stateMachineSensor(){  
     switch( stateTemp ){
@@ -51,10 +50,9 @@ void stateMachineSensor(){
             eClasificar();
             break;
         case( MEDIR ):
-            
+            eMedir();
             break;
-        case( ENVIAR ):
-            
+        default: 
             break;
         
     }
@@ -83,6 +81,25 @@ void eClasificar(){
     trmaUC = resultado;
 }
 
+void eMedir(){
+    trama_t mediciones;
+    unsigned char json[70] = {'\0'};
+    
+    double ubicacion[2] = {0, 0};
+    double temp[4] = {0.0, 0.0, 0.0, 0.0};
+    unsigned char trama[50] = "START";
+    
+    
+    mediciones.ubicacion = ubicacion;
+    mediciones.reversa = 0;
+    mediciones.trama = trama;
+    
+    temp[0] = leerTemperatura( SENSOR_1 );
+    
+    mediciones.Temperatura = temp;
+    enviarTemp( mediciones );
+}
+
 void aDecodificar(){
     stateTemp = CLASIFICAR;
 }
@@ -102,13 +119,17 @@ void aClasificar(){
 }
 
 void aComenzarMedicion(){
-    //prende el timer de la medicion
+    //TODO: enviar señal de start a la plataforma
+    
+    stateTemp = MEDIR;
 }
 
 void aFrenarMedicion(){
-    //apaga el timer de la medicion
+    //TODO: debe enviar una señal de stop
+    stateTemp = ESPERAR;
 }
 
 void aConfigurarMedicion(){
-    //configura los pasos de la medicion
+    //TODO: envia a la plataforma los pasos h (eje x) y k (eje y)
+    stateTemp = ESPERAR;
 }
