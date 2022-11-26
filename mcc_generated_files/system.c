@@ -46,16 +46,18 @@
 #include "clock.h"
 #include "system.h"
 #include "system_types.h"
-#include "tmr1.h"
-#include "uart1.h"
 #include "interrupt_manager.h"
 #include "traps.h"
+#include "tmr1.h"
+#include "uart1.h"
+#include "uart2.h"
 
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
     INTERRUPT_Initialize();
     CLOCK_Initialize();
+    UART2_Initialize();
     UART1_Initialize();
     TMR1_Initialize();
     INTERRUPT_GlobalEnable();

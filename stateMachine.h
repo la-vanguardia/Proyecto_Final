@@ -23,6 +23,8 @@ enum tramasClasificadas{
 
 unsigned char stateTemp = ESPERAR;
 recibir_t jsonRecibido;
+double x, y, h, k;
+
 
 unsigned char trmaUC;
 
@@ -85,7 +87,7 @@ void eMedir(){
     trama_t mediciones;
     unsigned char json[70] = {'\0'};
     
-    double ubicacion[2] = {0, 0};
+    double ubicacion[2] = {x, y};
     double temp[4] = {0.0, 0.0, 0.0, 0.0};
     unsigned char trama[50] = "START";
     
@@ -95,7 +97,6 @@ void eMedir(){
     mediciones.trama = trama;
     
     temp[0] = leerTemperatura( SENSOR_1 );
-    
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
 }
@@ -131,5 +132,7 @@ void aFrenarMedicion(){
 
 void aConfigurarMedicion(){
     //TODO: envia a la plataforma los pasos h (eje x) y k (eje y)
+    h = jsonRecibido.Pasos[0];
+    k = jsonRecibido.Pasos[1];
     stateTemp = ESPERAR;
 }
