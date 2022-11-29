@@ -42,6 +42,7 @@ void aConfigurarMedicion();
 
 
 void stateMachineSensor(){  
+    enviarMensanje("Tengo el estado");
     switch( stateTemp ){
         case( DECODIFICAR ):
             eDecodificar();
@@ -84,6 +85,7 @@ void eClasificar(){
 }
 
 void eMedir(){
+    enviarMensaje("MEDIR");
     trama_t mediciones;
     unsigned char json[70] = {'\0'};
     
