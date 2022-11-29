@@ -2,16 +2,18 @@
 #include "recepcion.h"
 #include "I2C.h"
 #include "temperatura.h"
+#include "plataforma.h"
+
 
 #define START "Start"
 #define STOP  "Stop"
 #define CONFIG  "Config"
 
 enum states{
-    ESPERAR,
-    MEDIR,
-    CLASIFICAR,
-    DECODIFICAR
+    ESPERAR = 0,
+    MEDIR = 1,
+    CLASIFICAR = 2,
+    DECODIFICAR = 3
 };
 
 enum tramasClasificadas{
@@ -21,7 +23,7 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
-unsigned char stateTemp = MEDIR;
+unsigned char stateTemp = ESPERAR;
 recibir_t jsonRecibido;
 double x, y, h, k;
 
@@ -42,7 +44,6 @@ void aConfigurarMedicion();
 
 
 void stateMachineSensor(){  
-    enviarMensaje("Tengo el estado");
     switch( stateTemp ){
         case( DECODIFICAR ):
             eDecodificar();
@@ -85,13 +86,12 @@ void eClasificar(){
 }
 
 void eMedir(){
-    enviarMensaje("MEDIR");
     trama_t mediciones;
     unsigned char json[70] = {'\0'};
     
     double ubicacion[2] = {0, 0};
     double temp[4] = {0.0, 0.0, 0.0, 0.0};
-    unsigned char trama[50] = "START";
+    unsigned char trama[50] = estadoTemp;
     
     
     mediciones.ubicacion = ubicacion;
@@ -102,6 +102,7 @@ void eMedir(){
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
     __delay_ms(1000);
+    estadoTemp = ESPERAR;
 }
 
 void aDecodificar(){
@@ -124,12 +125,13 @@ void aClasificar(){
 
 void aComenzarMedicion(){
     //TODO: enviar se�al de start a la plataforma
-    
+    sendStart();
     stateTemp = MEDIR;
 }
 
 void aFrenarMedicion(){
     //TODO: debe enviar una se�al de stop
+    sendStop();
     stateTemp = ESPERAR;
 }
 
