@@ -21,7 +21,7 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
-unsigned char stateTemp = ESPERAR;
+unsigned char stateTemp = MEDIR;
 recibir_t jsonRecibido;
 double x, y, h, k;
 
@@ -120,13 +120,13 @@ void aClasificar(){
 }
 
 void aComenzarMedicion(){
-    //TODO: enviar señal de start a la plataforma
+    //TODO: enviar seï¿½al de start a la plataforma
     
     stateTemp = MEDIR;
 }
 
 void aFrenarMedicion(){
-    //TODO: debe enviar una señal de stop
+    //TODO: debe enviar una seï¿½al de stop
     stateTemp = ESPERAR;
 }
 
