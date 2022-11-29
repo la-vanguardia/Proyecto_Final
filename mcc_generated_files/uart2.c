@@ -147,35 +147,7 @@ void UART2_SetTxInterruptHandler(void* handler)
     }
 } 
 
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _U2TXInterrupt ( void )
-{
-    (*UART2_TxDefaultInterruptHandler)();
 
-    if(txHead == txTail)
-    {
-        IEC1bits.U2TXIE = 0;
-    }
-    else
-    {
-        IFS1bits.U2TXIF = 0;
-
-        while(!(U2STAbits.UTXBF == 1))
-        {
-            U2TXREG = *txHead++;
-
-            if(txHead == (txQueue + UART2_CONFIG_TX_BYTEQ_LENGTH))
-            {
-                txHead = txQueue;
-            }
-
-            // Are we empty?
-            if(txHead == txTail)
-            {
-                break;
-            }
-        }
-    }
-}
 
 void __attribute__ ((weak)) UART2_Transmit_CallBack ( void )
 { 

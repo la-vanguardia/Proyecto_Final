@@ -42,7 +42,7 @@ void aConfigurarMedicion();
 
 
 void stateMachineSensor(){  
-    enviarMensanje("Tengo el estado");
+    enviarMensaje("Tengo el estado");
     switch( stateTemp ){
         case( DECODIFICAR ):
             eDecodificar();
@@ -89,7 +89,7 @@ void eMedir(){
     trama_t mediciones;
     unsigned char json[70] = {'\0'};
     
-    double ubicacion[2] = {x, y};
+    double ubicacion[2] = {0, 0};
     double temp[4] = {0.0, 0.0, 0.0, 0.0};
     unsigned char trama[50] = "START";
     
@@ -101,6 +101,7 @@ void eMedir(){
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
+    __delay_ms(1000);
 }
 
 void aDecodificar(){

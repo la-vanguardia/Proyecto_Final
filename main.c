@@ -49,7 +49,21 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
+    trama_t mediciones;
+    unsigned char json[70] = {'\0'};
     
+    double ubicacion[2] = {0, 0};
+    double temp[4] = {0.0, 0.0, 0.0, 0.0};
+    unsigned char trama[50] = "START";
+    
+    
+    mediciones.ubicacion = ubicacion;
+    mediciones.reversa = 0;
+    mediciones.trama = trama;
+    
+    temp[0] = leerTemperatura( SENSOR_1 );
+    mediciones.Temperatura = temp;
+    enviarTemp( mediciones );
     while (1)
     {
         stateMachineSensor();
