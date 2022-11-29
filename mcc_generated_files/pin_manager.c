@@ -72,7 +72,7 @@ void PIN_MANAGER_Initialize (void)
     /****************************************************************************
      * Setting the GPIO Direction SFR(s)
      ***************************************************************************/
-    TRISA = 0x0797;
+    TRISA = 0x0787;
     TRISB = 0xF7FF;
     TRISC = 0x03FF;
 
@@ -109,7 +109,7 @@ void PIN_MANAGER_Initialize (void)
     RPINR18bits.U1RXR = 0x002C;    //RB12->UART1:U1RX
     RPINR19bits.U2RXR = 0x002D;    //RB13->UART2:U2RX
     RPOR4bits.RP43R = 0x0001;    //RB11->UART1:U1TX
-    RPOR4bits.RP42R = 0x0003;    //RB10->UART2:U2TX
+    RPOR0bits.RP20R = 0x0003;    //RA04->UART2:U2TX
 
     __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
 

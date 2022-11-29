@@ -8,14 +8,14 @@
 #define CONTINUE_COMMAND "CONTINUE"
 
 
-int getMessageLength(char* message);
-void sendMessageToPlatform(char* message);
+unsigned char getMessageLength(unsigned char* message);
+void sendMessageToPlatform(unsigned char* message);
 void sendStart();
 void sendConfig(double h, double k);
 void sendStop();
 void sendCommand(char* command);
 
-int getMessageLength(char* message){
+unsigned char getMessageLength(unsigned char* message){
     unsigned char length = 0;
     while( message[ length ] != '\0' ){
         length++;
@@ -23,8 +23,9 @@ int getMessageLength(char* message){
     return length;
 }
 
-void sendMessageToPlatform(char* message){
-    unsigned char length = longitud( message ), i;
+void sendMessageToPlatform(unsigned char* message){
+    unsigned char length = getMessageLength( message );
+    unsigned char i;
     for( i=0; i < length; i++ ){
         UART2_Write( message[ i ] );
     }

@@ -46,7 +46,8 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U2RXInterrupt( void )
 {
     IFS1bits.U2RXIF = 0;
     char data = U2RXREG;
-    enviarMensaje(data);
+    
+    
 }
 
 
@@ -56,8 +57,9 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-    enviarMensaje("HELLO WORLD");
-    sendMessageToPlatform("HELLO WORLD PLATFORM! ");
+   // enviarMensaje("HELLO WORLD");
+   
+    //sendMessageToPlatform("HE");
     while (1)
     {
         stateMachineSensor();

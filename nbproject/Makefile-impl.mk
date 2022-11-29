@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=heat-dspic
+PROJECTNAME=Proyecto_Final
 
 # Active Configuration
 DEFAULTCONF=default

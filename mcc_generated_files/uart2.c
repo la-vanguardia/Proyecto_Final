@@ -80,8 +80,8 @@ static bool volatile rxOverflowed;
  * when head == tail.  So full will result in head/tail being off by one due to
  * the extra byte.
  */
-#define UART2_CONFIG_TX_BYTEQ_LENGTH (8+1)
-#define UART2_CONFIG_RX_BYTEQ_LENGTH (8+1)
+#define UART2_CONFIG_TX_BYTEQ_LENGTH (100+1)
+#define UART2_CONFIG_RX_BYTEQ_LENGTH (100+1)
 
 /** UART Driver Queue
 
@@ -111,7 +111,7 @@ void UART2_Initialize(void)
     // UTXISEL0 TX_ONE_CHAR; UTXINV disabled; OERR NO_ERROR_cleared; URXISEL RX_ONE_CHAR; UTXBRK COMPLETED; UTXEN disabled; ADDEN disabled; 
     U2STA = 0x00;
     // BaudRate = 19200; Frequency = 7603200 Hz; BRG 98; 
-    U2BRG = 0x62;
+    U2BRG = 0xC5;
     
     txHead = txQueue;
     txTail = txQueue;

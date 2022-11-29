@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project>
-  <executable name="dist/default/production/heat-dspic.production.elf">
+  <executable name="dist/default/production/Proyecto_Final.production.elf">
     <memory name="data">
       <units>bytes</units>
       <length>49152</length>
-      <used>804</used>
-      <free>48348</free>
+      <used>768</used>
+      <free>48384</free>
     </memory>
     <memory name="program">
       <units>bytes</units>
       <length>524514</length>
-      <used>26331</used>
-      <free>498183</free>
+      <used>19788</used>
+      <free>504726</free>
     </memory>
   </executable>
 </project>

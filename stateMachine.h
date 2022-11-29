@@ -23,7 +23,7 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
-unsigned char stateTemp = ESPERAR;
+unsigned char stateTemp = MEDIR;
 recibir_t jsonRecibido;
 double x, y, h, k;
 
@@ -102,6 +102,7 @@ void eMedir(){
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
     __delay_ms(1000);
+    UART2_Write('A');
     stateTemp = ESPERAR;
 }
 
