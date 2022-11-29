@@ -91,7 +91,7 @@ void eMedir(){
     
     double ubicacion[2] = {0, 0};
     double temp[4] = {0.0, 0.0, 0.0, 0.0};
-    unsigned char trama[50] = estadoTemp;
+    unsigned char trama[50] = "hola";
     
     
     mediciones.ubicacion = ubicacion;
@@ -102,7 +102,7 @@ void eMedir(){
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
     __delay_ms(1000);
-    estadoTemp = ESPERAR;
+    stateTemp = ESPERAR;
 }
 
 void aDecodificar(){
