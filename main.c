@@ -42,6 +42,13 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
     T1CONbits.TON = 1;   
 }
 
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _U2RXInterrupt( void )
+{
+    IFS1bits.U2RXIF = 0;
+    char data = U2RXREG;
+    enviarMensaje(data);
+}
+
 
 
 int main(void)
