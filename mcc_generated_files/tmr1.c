@@ -110,25 +110,6 @@ void TMR1_Initialize (void)
 }
 
 
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
-{
-    /* Check if the Timer Interrupt/Status is set */
-
-    //***User Area Begin
-
-    // ticker function call;
-    // ticker is 1 -> Callback function gets called everytime this ISR executes
-    if(TMR1_InterruptHandler) 
-    { 
-           TMR1_InterruptHandler(); 
-    }
-
-    //***User Area End
-
-    tmr1_obj.count++;
-    tmr1_obj.timerElapsed = true;
-    IFS0bits.T1IF = false;
-}
 
 void TMR1_Period16BitSet( uint16_t value )
 {
