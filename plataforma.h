@@ -5,6 +5,7 @@
 #define STOP_COMMAND "STOP"
 #define START_COMMAND "START"
 #define CONFIG_COMMAND "CONFIG"
+#define CONTINUE_COMMAND "CONTINUE"
 
 
 int getMessageLength(char* message);
@@ -22,8 +23,6 @@ int getMessageLength(char* message){
     return length;
 }
 
-
-
 void sendMessageToPlatform(char* message){
     unsigned char length = longitud( message ), i;
     for( i=0; i < length; i++ ){
@@ -36,3 +35,14 @@ void sendStart(){
     sendMessageToPlatform(START_COMMAND);
 }
 
+void sendStop(){
+    sendMessageToPlatform(STOP_COMMAND);
+}
+
+void sendContinue(){
+    sendMessageToPlatform(CONTINUE_COMMAND);
+}
+
+void sendConfig(double h, double k){
+    sendMessageToPlatform(CONFIG_COMMAND);
+}
