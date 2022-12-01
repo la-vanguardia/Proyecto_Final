@@ -26,7 +26,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
         //stateTemp = DECODIFICAR;
         datos_recepcion_uart1[ ubicacion_actual ] = '\0';
         ubicacion_actual = 0;
-        sendMessageToPlatform(datos_recepcion_uart1);
+        enviarMensaje(datos_recepcion_uart1);
         T1CONbits.TON = 0;
     }
 }
@@ -46,8 +46,15 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
 {
     IFS5bits.U3RXIF = 0;
-    char data = U3RXREG;
-    
+    unsigned char data = U3RXREG;
+    if(data == 0x0D){
+        enviarMensaje(datos_recepcion_uart1);
+        ubicacion_actual = 0;
+    }
+    else{
+        datos_recepcion_uart1[ ubicacion_actual ] = data;
+        ubicacion_actual++;
+    }
     
 }
 
