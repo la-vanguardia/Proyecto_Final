@@ -100,7 +100,7 @@ void eMedir(){
     
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
-    enviarTemp( mediciones );
+    //enviarTemp( mediciones );
     if(prevStateTemp == MEDIR){
         stateTemp = ESPERAR;
     }
