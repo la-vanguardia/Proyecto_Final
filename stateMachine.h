@@ -23,7 +23,7 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
-unsigned char stateTemp = ESPERAR;
+unsigned char stateTemp, prevStateTemp = ESPERAR, ESPERAR;
 recibir_t jsonRecibido;
 double x, y, h, k;
 
@@ -101,7 +101,13 @@ void eMedir(){
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
-    stateTemp = ESPERAR;
+    if(prevStateTemp == MEDIR){
+        stateTemp = ESPERAR;
+    }
+    else{
+        stateTemp = prevStateTemp;
+        prevStateTemp = MEDIR;
+    }
 }
 
 void aDecodificar(){
