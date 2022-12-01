@@ -42,10 +42,10 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
     T1CONbits.TON = 1;   
 }
 
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _U2RXInterrupt( void )
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
 {
-    IFS1bits.U2RXIF = 0;
-    char data = U2RXREG;
+    IFS5bits.U3RXIF = 0;
+    char data = U3RXREG;
     
     
 }
@@ -59,7 +59,7 @@ int main(void)
     configurarI2C();
    // enviarMensaje("HELLO WORLD");
    
-    //sendMessageToPlatform("HE");
+    sendMessageToPlatform("HELLO");
     while (1)
     {
         stateMachineSensor();

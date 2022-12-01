@@ -53,8 +53,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "watchdog.h"
-#include "reset.h"
+#include "uart3.h"
 #include "tmr1.h"
+#include "reset.h"
 #include "uart1.h"
 #include "interrupt_manager.h"
 #include "traps.h"

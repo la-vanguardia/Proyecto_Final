@@ -102,7 +102,6 @@ void eMedir(){
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
     __delay_ms(1000);
-    UART2_Write('A');
     stateTemp = ESPERAR;
 }
 

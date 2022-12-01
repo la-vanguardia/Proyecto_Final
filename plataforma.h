@@ -1,5 +1,7 @@
 
-#include "mcc_generated_files/uart2.h"
+#include "mcc_generated_files/uart3.h"
+
+
 //Aca se encuentran las funciones para comunicacion de la plataforma
 
 #define STOP_COMMAND "STOP"
@@ -27,9 +29,9 @@ void sendMessageToPlatform(unsigned char* message){
     unsigned char length = getMessageLength( message );
     unsigned char i;
     for( i=0; i < length; i++ ){
-        UART2_Write( message[ i ] );
+        UART3_Write( message[ i ] );
     }
-    UART2_Write(0x0D);
+    UART3_Write(0x0D);
 }
 
 void sendStart(){
