@@ -65,9 +65,7 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-    enviarMensaje("HELLO WORLD");
    
-    //sendMessageToPlatform("HELLO");
     while (1)
     {
         stateMachineSensor();

@@ -187,14 +187,14 @@ Program Memory  [Origin = 0x200, Length = 0x555ec]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200              0x1e0c          0x2d12  (11538)
-.const                      0x200c                0xa0            0xf0  (240)
-.text                       0x20ac              0x1224          0x1b36  (6966)
-.dinit                      0x32d0                0xc6           0x129  (297)
-.text                       0x3396               0x230           0x348  (840)
-.init.delay32               0x35c6                0x1c            0x2a  (42)
-.text                       0x35e2                0x16            0x21  (33)
+.const                      0x200c                0xa6            0xf9  (249)
+.text                       0x20b2              0x1256          0x1b81  (7041)
+.dinit                      0x3308                0xc6           0x129  (297)
+.text                       0x33ce               0x230           0x348  (840)
+.init.delay32               0x35fe                0x1c            0x2a  (42)
+.text                       0x361a                0x16            0x21  (33)
 
-                     Total program memory used (bytes):         0x4df4  (19956) 3%
+                     Total program memory used (bytes):         0x4e48  (20040) 3%
 
 
 Data Memory  [Origin = 0x1000, Length = 0xc000]
@@ -358,173 +358,173 @@ External Symbols in Program Memory (by address):
                   0x001f48                  __dunpack
                   0x001f96                  ___floatdidf
                   0x001fb6                  ___floatundidf
-                  0x0020ac                  _longitudString
-                  0x0020d4                  _crearJSONString
-                  0x002142                  _decodificarJSONString
-                  0x0021f2                  _split
-                  0x0022e4                  _clasificar
-                  0x00233a                  _equals
-                  0x002394                  _obtener_pasos
-                  0x00248e                  _toFloat
-                  0x002512                  _obtener_trama
-                  0x0025b2                  _pasarVectores
-                  0x0025ee                  _potencia
-                  0x002646                  _longitud
-                  0x002664                  _enviarMensaje
-                  0x002690                  _configurarI2C
-                  0x0026a4                  _iniciarComunicacion
-                  0x0026bc                  _transmitirDato
-                  0x0026f6                  _transmitirDatos
-                  0x002734                  _recibirDato
-                  0x002764                  _recibirDatos
-                  0x0027cc                  _iniciarI2C
-                  0x0027de                  _detenerI2C
-                  0x0027fe                  _resetearI2C
-                  0x002810                  _leerTemperatura
-                  0x00284a                  _enviarTemp
-                  0x00286e                  _getMessageLength
-                  0x00288c                  _sendMessageToPlatform
-                  0x0028b8                  _sendStart
-                  0x0028c2                  _sendStop
-                  0x0028cc                  _sendContinue
-                  0x0028d6                  _sendConfig
-                  0x0028e6                  _stateMachineSensor
-                  0x00290e                  _eDecodificar
-                  0x002922                  _eClasificar
-                  0x00296c                  _eMedir
-                  0x0029cc                  _aDecodificar
-                  0x0029d6                  _aClasificar
-                  0x0029f8                  _aComenzarMedicion
-                  0x002a04                  _aFrenarMedicion
-                  0x002a0e                  _aConfigurarMedicion
-                  0x002a28                  __T1Interrupt
-                  0x002a68                  __U1RXInterrupt
-                  0x002a92                  __U3RXInterrupt
-                  0x002aa2                  _main
-                  0x002ab0                  _UART1_Initialize
-                  0x002ae4                  _UART1_SetTxInterruptHandler
-                  0x002afc                  __U1TXInterrupt
-                  0x002b5e                  _UART1_SetRxInterruptHandler
-                  0x002b7c                  __U1ErrInterrupt
-                  0x002b92                  _UART1_Read
-                  0x002bbe                  _UART1_Write
-                  0x002be8                  _UART1_IsRxReady
-                  0x002bfe                  _UART1_IsTxReady
-                  0x002c32                  _UART1_IsTxDone
-                  0x002cc2                  _UART1_ReadBuffer
-                  0x002cfc                  _UART1_WriteBuffer
-                  0x002d36                  _UART1_TransferStatusGet
-                  0x002d7e                  _UART1_Peek
-                  0x002d9e                  _UART1_ReceiveBufferIsEmpty
-                  0x002dae                  _UART1_TransmitBufferIsFull
-                  0x002dbe                  _UART1_StatusGet
-                  0x002dc6                  _UART1_TransmitBufferSizeGet
-                  0x002df4                  _UART1_ReceiveBufferSizeGet
-                  0x002e22                  _UART1_Enable
-                  0x002e2c                  _UART1_Disable
-                  0x002e36                  _UART3_Initialize
-                  0x002e6a                  _UART3_SetTxInterruptHandler
-                  0x002e82                  __U3TXInterrupt
-                  0x002ee4                  _UART3_SetRxInterruptHandler
-                  0x002f02                  __U3ErrInterrupt
-                  0x002f18                  _UART3_Read
-                  0x002f44                  _UART3_Write
-                  0x002f6e                  _UART3_IsRxReady
-                  0x002f84                  _UART3_IsTxReady
-                  0x002fb8                  _UART3_IsTxDone
-                  0x003048                  _UART3_ReadBuffer
-                  0x003082                  _UART3_WriteBuffer
-                  0x0030bc                  _UART3_TransferStatusGet
-                  0x003104                  _UART3_Peek
-                  0x003124                  _UART3_ReceiveBufferIsEmpty
-                  0x003134                  _UART3_TransmitBufferIsFull
-                  0x003144                  _UART3_StatusGet
-                  0x00314c                  _UART3_TransmitBufferSizeGet
-                  0x00317a                  _UART3_ReceiveBufferSizeGet
-                  0x0031a8                  _UART3_Enable
-                  0x0031b2                  _UART3_Disable
-                  0x0031bc                  _RESET_GetCause
-                  0x0032c8                  _RESET_CauseClearAll
-                  0x003396                  _TMR1_Initialize
-                  0x0033b8                  _TMR1_Period16BitSet
-                  0x0033ca                  _TMR1_Period16BitGet
-                  0x0033d2                  _TMR1_Counter16BitSet
-                  0x0033e4                  _TMR1_Counter16BitGet
-                  0x0033f2                  _TMR1_SetInterruptHandler
-                  0x003402                  _TMR1_Start
-                  0x003412                  _TMR1_Stop
-                  0x00341c                  _TMR1_GetElapsedThenClear
-                  0x003434                  _TMR1_SoftwareCounterGet
-                  0x003440                  _TMR1_SoftwareCounterClear
-                  0x00344c                  _PIN_MANAGER_Initialize
-                  0x0034d4                  _CLOCK_Initialize
-                  0x003524                  _INTERRUPT_Initialize
-                  0x00358e                  _SYSTEM_Initialize
-                  0x0035a6                  _OSCILLATOR_Initialize
-                  0x0035ae                  _SYSTEM_GetResetCause
-                  0x0035be                  _SYSTEM_ResetCauseClearAll
-                  0x0035c6                  ___delay32
+                  0x0020b2                  _longitudString
+                  0x0020da                  _crearJSONString
+                  0x002148                  _decodificarJSONString
+                  0x0021f8                  _split
+                  0x0022ea                  _clasificar
+                  0x002340                  _equals
+                  0x00239a                  _obtener_pasos
+                  0x002494                  _toFloat
+                  0x002518                  _obtener_trama
+                  0x0025b8                  _pasarVectores
+                  0x0025f4                  _potencia
+                  0x00264c                  _longitud
+                  0x00266a                  _enviarMensaje
+                  0x002696                  _configurarI2C
+                  0x0026aa                  _iniciarComunicacion
+                  0x0026c2                  _transmitirDato
+                  0x0026fc                  _transmitirDatos
+                  0x00273a                  _recibirDato
+                  0x00276a                  _recibirDatos
+                  0x0027d2                  _iniciarI2C
+                  0x0027e4                  _detenerI2C
+                  0x002804                  _resetearI2C
+                  0x002816                  _leerTemperatura
+                  0x002850                  _enviarTemp
+                  0x002874                  _getMessageLength
+                  0x002892                  _sendMessageToPlatform
+                  0x0028be                  _sendStart
+                  0x0028c8                  _sendStop
+                  0x0028d2                  _sendContinue
+                  0x0028dc                  _sendConfig
+                  0x0028ec                  _stateMachineSensor
+                  0x002914                  _eDecodificar
+                  0x002928                  _eClasificar
+                  0x002972                  _eMedir
+                  0x0029d2                  _aDecodificar
+                  0x0029dc                  _aClasificar
+                  0x0029fe                  _aComenzarMedicion
+                  0x002a0a                  _aFrenarMedicion
+                  0x002a14                  _aConfigurarMedicion
+                  0x002a2e                  __T1Interrupt
+                  0x002a6e                  __U1RXInterrupt
+                  0x002a98                  __U3RXInterrupt
+                  0x002ad6                  _main
+                  0x002ae8                  _UART1_Initialize
+                  0x002b1c                  _UART1_SetTxInterruptHandler
+                  0x002b34                  __U1TXInterrupt
+                  0x002b96                  _UART1_SetRxInterruptHandler
+                  0x002bb4                  __U1ErrInterrupt
+                  0x002bca                  _UART1_Read
+                  0x002bf6                  _UART1_Write
+                  0x002c20                  _UART1_IsRxReady
+                  0x002c36                  _UART1_IsTxReady
+                  0x002c6a                  _UART1_IsTxDone
+                  0x002cfa                  _UART1_ReadBuffer
+                  0x002d34                  _UART1_WriteBuffer
+                  0x002d6e                  _UART1_TransferStatusGet
+                  0x002db6                  _UART1_Peek
+                  0x002dd6                  _UART1_ReceiveBufferIsEmpty
+                  0x002de6                  _UART1_TransmitBufferIsFull
+                  0x002df6                  _UART1_StatusGet
+                  0x002dfe                  _UART1_TransmitBufferSizeGet
+                  0x002e2c                  _UART1_ReceiveBufferSizeGet
+                  0x002e5a                  _UART1_Enable
+                  0x002e64                  _UART1_Disable
+                  0x002e6e                  _UART3_Initialize
+                  0x002ea2                  _UART3_SetTxInterruptHandler
+                  0x002eba                  __U3TXInterrupt
+                  0x002f1c                  _UART3_SetRxInterruptHandler
+                  0x002f3a                  __U3ErrInterrupt
+                  0x002f50                  _UART3_Read
+                  0x002f7c                  _UART3_Write
+                  0x002fa6                  _UART3_IsRxReady
+                  0x002fbc                  _UART3_IsTxReady
+                  0x002ff0                  _UART3_IsTxDone
+                  0x003080                  _UART3_ReadBuffer
+                  0x0030ba                  _UART3_WriteBuffer
+                  0x0030f4                  _UART3_TransferStatusGet
+                  0x00313c                  _UART3_Peek
+                  0x00315c                  _UART3_ReceiveBufferIsEmpty
+                  0x00316c                  _UART3_TransmitBufferIsFull
+                  0x00317c                  _UART3_StatusGet
+                  0x003184                  _UART3_TransmitBufferSizeGet
+                  0x0031b2                  _UART3_ReceiveBufferSizeGet
+                  0x0031e0                  _UART3_Enable
+                  0x0031ea                  _UART3_Disable
+                  0x0031f4                  _RESET_GetCause
+                  0x003300                  _RESET_CauseClearAll
+                  0x0033ce                  _TMR1_Initialize
+                  0x0033f0                  _TMR1_Period16BitSet
+                  0x003402                  _TMR1_Period16BitGet
+                  0x00340a                  _TMR1_Counter16BitSet
+                  0x00341c                  _TMR1_Counter16BitGet
+                  0x00342a                  _TMR1_SetInterruptHandler
+                  0x00343a                  _TMR1_Start
+                  0x00344a                  _TMR1_Stop
+                  0x003454                  _TMR1_GetElapsedThenClear
+                  0x00346c                  _TMR1_SoftwareCounterGet
+                  0x003478                  _TMR1_SoftwareCounterClear
+                  0x003484                  _PIN_MANAGER_Initialize
+                  0x00350c                  _CLOCK_Initialize
+                  0x00355c                  _INTERRUPT_Initialize
+                  0x0035c6                  _SYSTEM_Initialize
+                  0x0035de                  _OSCILLATOR_Initialize
+                  0x0035e6                  _SYSTEM_GetResetCause
+                  0x0035f6                  _SYSTEM_ResetCauseClearAll
+                  0x0035fe                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x0034d4                  _CLOCK_Initialize
-                  0x003524                  _INTERRUPT_Initialize
-                  0x0035a6                  _OSCILLATOR_Initialize
-                  0x00344c                  _PIN_MANAGER_Initialize
-                  0x0032c8                  _RESET_CauseClearAll
-                  0x0031bc                  _RESET_GetCause
-                  0x0035ae                  _SYSTEM_GetResetCause
-                  0x00358e                  _SYSTEM_Initialize
-                  0x0035be                  _SYSTEM_ResetCauseClearAll
-                  0x0033e4                  _TMR1_Counter16BitGet
-                  0x0033d2                  _TMR1_Counter16BitSet
-                  0x00341c                  _TMR1_GetElapsedThenClear
-                  0x003396                  _TMR1_Initialize
-                  0x0033ca                  _TMR1_Period16BitGet
-                  0x0033b8                  _TMR1_Period16BitSet
-                  0x0033f2                  _TMR1_SetInterruptHandler
-                  0x003440                  _TMR1_SoftwareCounterClear
-                  0x003434                  _TMR1_SoftwareCounterGet
-                  0x003402                  _TMR1_Start
-                  0x003412                  _TMR1_Stop
-                  0x002e2c                  _UART1_Disable
-                  0x002e22                  _UART1_Enable
-                  0x002ab0                  _UART1_Initialize
-                  0x002be8                  _UART1_IsRxReady
-                  0x002c32                  _UART1_IsTxDone
-                  0x002bfe                  _UART1_IsTxReady
-                  0x002d7e                  _UART1_Peek
-                  0x002b92                  _UART1_Read
-                  0x002cc2                  _UART1_ReadBuffer
-                  0x002d9e                  _UART1_ReceiveBufferIsEmpty
-                  0x002df4                  _UART1_ReceiveBufferSizeGet
-                  0x002b5e                  _UART1_SetRxInterruptHandler
-                  0x002ae4                  _UART1_SetTxInterruptHandler
-                  0x002dbe                  _UART1_StatusGet
-                  0x002d36                  _UART1_TransferStatusGet
-                  0x002dae                  _UART1_TransmitBufferIsFull
-                  0x002dc6                  _UART1_TransmitBufferSizeGet
-                  0x002bbe                  _UART1_Write
-                  0x002cfc                  _UART1_WriteBuffer
-                  0x0031b2                  _UART3_Disable
-                  0x0031a8                  _UART3_Enable
-                  0x002e36                  _UART3_Initialize
-                  0x002f6e                  _UART3_IsRxReady
-                  0x002fb8                  _UART3_IsTxDone
-                  0x002f84                  _UART3_IsTxReady
-                  0x003104                  _UART3_Peek
-                  0x002f18                  _UART3_Read
-                  0x003048                  _UART3_ReadBuffer
-                  0x003124                  _UART3_ReceiveBufferIsEmpty
-                  0x00317a                  _UART3_ReceiveBufferSizeGet
-                  0x002ee4                  _UART3_SetRxInterruptHandler
-                  0x002e6a                  _UART3_SetTxInterruptHandler
-                  0x003144                  _UART3_StatusGet
-                  0x0030bc                  _UART3_TransferStatusGet
-                  0x003134                  _UART3_TransmitBufferIsFull
-                  0x00314c                  _UART3_TransmitBufferSizeGet
-                  0x002f44                  _UART3_Write
-                  0x003082                  _UART3_WriteBuffer
+                  0x00350c                  _CLOCK_Initialize
+                  0x00355c                  _INTERRUPT_Initialize
+                  0x0035de                  _OSCILLATOR_Initialize
+                  0x003484                  _PIN_MANAGER_Initialize
+                  0x003300                  _RESET_CauseClearAll
+                  0x0031f4                  _RESET_GetCause
+                  0x0035e6                  _SYSTEM_GetResetCause
+                  0x0035c6                  _SYSTEM_Initialize
+                  0x0035f6                  _SYSTEM_ResetCauseClearAll
+                  0x00341c                  _TMR1_Counter16BitGet
+                  0x00340a                  _TMR1_Counter16BitSet
+                  0x003454                  _TMR1_GetElapsedThenClear
+                  0x0033ce                  _TMR1_Initialize
+                  0x003402                  _TMR1_Period16BitGet
+                  0x0033f0                  _TMR1_Period16BitSet
+                  0x00342a                  _TMR1_SetInterruptHandler
+                  0x003478                  _TMR1_SoftwareCounterClear
+                  0x00346c                  _TMR1_SoftwareCounterGet
+                  0x00343a                  _TMR1_Start
+                  0x00344a                  _TMR1_Stop
+                  0x002e64                  _UART1_Disable
+                  0x002e5a                  _UART1_Enable
+                  0x002ae8                  _UART1_Initialize
+                  0x002c20                  _UART1_IsRxReady
+                  0x002c6a                  _UART1_IsTxDone
+                  0x002c36                  _UART1_IsTxReady
+                  0x002db6                  _UART1_Peek
+                  0x002bca                  _UART1_Read
+                  0x002cfa                  _UART1_ReadBuffer
+                  0x002dd6                  _UART1_ReceiveBufferIsEmpty
+                  0x002e2c                  _UART1_ReceiveBufferSizeGet
+                  0x002b96                  _UART1_SetRxInterruptHandler
+                  0x002b1c                  _UART1_SetTxInterruptHandler
+                  0x002df6                  _UART1_StatusGet
+                  0x002d6e                  _UART1_TransferStatusGet
+                  0x002de6                  _UART1_TransmitBufferIsFull
+                  0x002dfe                  _UART1_TransmitBufferSizeGet
+                  0x002bf6                  _UART1_Write
+                  0x002d34                  _UART1_WriteBuffer
+                  0x0031ea                  _UART3_Disable
+                  0x0031e0                  _UART3_Enable
+                  0x002e6e                  _UART3_Initialize
+                  0x002fa6                  _UART3_IsRxReady
+                  0x002ff0                  _UART3_IsTxDone
+                  0x002fbc                  _UART3_IsTxReady
+                  0x00313c                  _UART3_Peek
+                  0x002f50                  _UART3_Read
+                  0x003080                  _UART3_ReadBuffer
+                  0x00315c                  _UART3_ReceiveBufferIsEmpty
+                  0x0031b2                  _UART3_ReceiveBufferSizeGet
+                  0x002f1c                  _UART3_SetRxInterruptHandler
+                  0x002ea2                  _UART3_SetTxInterruptHandler
+                  0x00317c                  _UART3_StatusGet
+                  0x0030f4                  _UART3_TransferStatusGet
+                  0x00316c                  _UART3_TransmitBufferIsFull
+                  0x003184                  _UART3_TransmitBufferSizeGet
+                  0x002f7c                  _UART3_Write
+                  0x0030ba                  _UART3_WriteBuffer
                   0x0002fc                  __AddressError
                   0x00030c                  __DMACError
                   0x000324                  __DefaultInterrupt
@@ -537,13 +537,13 @@ External Symbols in Program Memory (by name):
                   0x001678                  __Puttxt
                   0x00031c                  __SoftTrapError
                   0x0002f2                  __StackError
-                  0x002a28                  __T1Interrupt
-                  0x002b7c                  __U1ErrInterrupt
-                  0x002a68                  __U1RXInterrupt
-                  0x002afc                  __U1TXInterrupt
-                  0x002f02                  __U3ErrInterrupt
-                  0x002a92                  __U3RXInterrupt
-                  0x002e82                  __U3TXInterrupt
+                  0x002a2e                  __T1Interrupt
+                  0x002bb4                  __U1ErrInterrupt
+                  0x002a6e                  __U1RXInterrupt
+                  0x002b34                  __U1TXInterrupt
+                  0x002f3a                  __U3ErrInterrupt
+                  0x002a98                  __U3RXInterrupt
+                  0x002eba                  __U3TXInterrupt
                   0x0017f0                  __Vacopy
                   0x00111c                  ___Genld_cdfFnopsuxX
                   0x000ecc                  ___Ldtob_cdfFnopsuxX
@@ -551,7 +551,7 @@ External Symbols in Program Memory (by name):
                   0x000bee                  ___Putfld_cdfFnopsuxX
                   0x001dbc                  ___adddf3
                   0x00032a                  ___addsf3
-                  0x0035c6                  ___delay32
+                  0x0035fe                  ___delay32
                   0x0018a0                  ___divdf3
                   0x001d00                  ___divdi3
                   0x0003e4                  ___divsf3
@@ -610,56 +610,56 @@ External Symbols in Program Memory (by name):
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
                   0x000a6c                  __sprintf_cdfFnopsuxX
-                  0x0029d6                  _aClasificar
-                  0x0029f8                  _aComenzarMedicion
-                  0x002a0e                  _aConfigurarMedicion
-                  0x0029cc                  _aDecodificar
-                  0x002a04                  _aFrenarMedicion
-                  0x0022e4                  _clasificar
-                  0x002690                  _configurarI2C
-                  0x0020d4                  _crearJSONString
-                  0x002142                  _decodificarJSONString
-                  0x0027de                  _detenerI2C
+                  0x0029dc                  _aClasificar
+                  0x0029fe                  _aComenzarMedicion
+                  0x002a14                  _aConfigurarMedicion
+                  0x0029d2                  _aDecodificar
+                  0x002a0a                  _aFrenarMedicion
+                  0x0022ea                  _clasificar
+                  0x002696                  _configurarI2C
+                  0x0020da                  _crearJSONString
+                  0x002148                  _decodificarJSONString
+                  0x0027e4                  _detenerI2C
                   0x001330                  _div
-                  0x002922                  _eClasificar
-                  0x00290e                  _eDecodificar
-                  0x00296c                  _eMedir
-                  0x002664                  _enviarMensaje
-                  0x00284a                  _enviarTemp
-                  0x00233a                  _equals
+                  0x002928                  _eClasificar
+                  0x002914                  _eDecodificar
+                  0x002972                  _eMedir
+                  0x00266a                  _enviarMensaje
+                  0x002850                  _enviarTemp
+                  0x002340                  _equals
                   0x000732                  _expf
-                  0x00286e                  _getMessageLength
-                  0x0026a4                  _iniciarComunicacion
-                  0x0027cc                  _iniciarI2C
+                  0x002874                  _getMessageLength
+                  0x0026aa                  _iniciarComunicacion
+                  0x0027d2                  _iniciarI2C
                   0x000936                  _ldexpf
                   0x001346                  _ldiv
-                  0x002810                  _leerTemperatura
+                  0x002816                  _leerTemperatura
                   0x00097a                  _logf
-                  0x002646                  _longitud
-                  0x0020ac                  _longitudString
-                  0x002aa2                  _main
+                  0x00264c                  _longitud
+                  0x0020b2                  _longitudString
+                  0x002ad6                  _main
                   0x001370                  _memchr
                   0x001384                  _memcpy
-                  0x002394                  _obtener_pasos
-                  0x002512                  _obtener_trama
-                  0x0025b2                  _pasarVectores
-                  0x0025ee                  _potencia
+                  0x00239a                  _obtener_pasos
+                  0x002518                  _obtener_trama
+                  0x0025b8                  _pasarVectores
+                  0x0025f4                  _potencia
                   0x000552                  _powf
-                  0x002734                  _recibirDato
-                  0x002764                  _recibirDatos
-                  0x0027fe                  _resetearI2C
-                  0x0028d6                  _sendConfig
-                  0x0028cc                  _sendContinue
-                  0x00288c                  _sendMessageToPlatform
-                  0x0028b8                  _sendStart
-                  0x0028c2                  _sendStop
-                  0x0021f2                  _split
-                  0x0028e6                  _stateMachineSensor
+                  0x00273a                  _recibirDato
+                  0x00276a                  _recibirDatos
+                  0x002804                  _resetearI2C
+                  0x0028dc                  _sendConfig
+                  0x0028d2                  _sendContinue
+                  0x002892                  _sendMessageToPlatform
+                  0x0028be                  _sendStart
+                  0x0028c8                  _sendStop
+                  0x0021f8                  _split
+                  0x0028ec                  _stateMachineSensor
                   0x001392                  _strchr
                   0x0013aa                  _strlen
-                  0x00248e                  _toFloat
-                  0x0026bc                  _transmitirDato
-                  0x0026f6                  _transmitirDatos
+                  0x002494                  _toFloat
+                  0x0026c2                  _transmitirDato
+                  0x0026fc                  _transmitirDatos
                   0x000a5e                  sprintf_cdfFnopsuxX.EPeo:_prout
 
 Memory Configuration
@@ -985,7 +985,7 @@ __FUID3
  .debug_abbrev    0x000942        0x223 build/default/production/mcc_generated_files/uart3.o
  .debug_abbrev    0x000b65        0x2a6 build/default/production/main.o
 
-.debug_line       0x000000       0x2e11
+.debug_line       0x000000       0x2e41
  *(.debug_line)
  .debug_line      0x000000        0x34d build/default/production/mcc_generated_files/reset.o
  .debug_line      0x00034d        0x17b build/default/production/mcc_generated_files/system.o
@@ -997,7 +997,7 @@ __FUID3
  .debug_line      0x000c91        0x30f build/default/production/mcc_generated_files/tmr1.o
  .debug_line      0x000fa0        0x7a0 build/default/production/mcc_generated_files/uart1.o
  .debug_line      0x001740        0x7a0 build/default/production/mcc_generated_files/uart3.o
- .debug_line      0x001ee0        0xf31 build/default/production/main.o
+ .debug_line      0x001ee0        0xf61 build/default/production/main.o
 
 .debug_frame      0x000000        0x98c
  *(.debug_frame)
@@ -1098,7 +1098,7 @@ __FUID3
                   0x000014          0x4 LONG 0x324 DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x324 DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x324 DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x2a28 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x2a2e DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x324 DEFINED (__DMA0Interrupt)?ABSOLUTE (__DMA0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x324 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x324 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -1106,8 +1106,8 @@ __FUID3
                   0x000024          0x4 LONG 0x324 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x324 DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x324 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00002a          0x4 LONG 0x2a68 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00002c          0x4 LONG 0x2afc DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002a          0x4 LONG 0x2a6e DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002c          0x4 LONG 0x2b34 DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00002e          0x4 LONG 0x324 DEFINED (__AD1Interrupt)?ABSOLUTE (__AD1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000030          0x4 LONG 0x324 DEFINED (__DMA1Interrupt)?ABSOLUTE (__DMA1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000032          0x4 LONG 0x324 DEFINED (__Interrupt15)?ABSOLUTE (__Interrupt15):ABSOLUTE (__DefaultInterrupt)
@@ -1160,7 +1160,7 @@ __FUID3
                   0x000090          0x4 LONG 0x324 DEFINED (__RTCCInterrupt)?ABSOLUTE (__RTCCInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000092          0x4 LONG 0x324 DEFINED (__Interrupt63)?ABSOLUTE (__Interrupt63):ABSOLUTE (__DefaultInterrupt)
                   0x000094          0x4 LONG 0x324 DEFINED (__Interrupt64)?ABSOLUTE (__Interrupt64):ABSOLUTE (__DefaultInterrupt)
-                  0x000096          0x4 LONG 0x2b7c DEFINED (__U1ErrInterrupt)?ABSOLUTE (__U1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000096          0x4 LONG 0x2bb4 DEFINED (__U1ErrInterrupt)?ABSOLUTE (__U1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000098          0x4 LONG 0x324 DEFINED (__U2ErrInterrupt)?ABSOLUTE (__U2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00009a          0x4 LONG 0x324 DEFINED (__CRCInterrupt)?ABSOLUTE (__CRCInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00009c          0x4 LONG 0x324 DEFINED (__Interrupt68)?ABSOLUTE (__Interrupt68):ABSOLUTE (__DefaultInterrupt)
@@ -1176,9 +1176,9 @@ __FUID3
                   0x0000b0          0x4 LONG 0x324 DEFINED (__Interrupt78)?ABSOLUTE (__Interrupt78):ABSOLUTE (__DefaultInterrupt)
                   0x0000b2          0x4 LONG 0x324 DEFINED (__Interrupt79)?ABSOLUTE (__Interrupt79):ABSOLUTE (__DefaultInterrupt)
                   0x0000b4          0x4 LONG 0x324 DEFINED (__Interrupt80)?ABSOLUTE (__Interrupt80):ABSOLUTE (__DefaultInterrupt)
-                  0x0000b6          0x4 LONG 0x2f02 DEFINED (__U3ErrInterrupt)?ABSOLUTE (__U3ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000b8          0x4 LONG 0x2a92 DEFINED (__U3RXInterrupt)?ABSOLUTE (__U3RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000ba          0x4 LONG 0x2e82 DEFINED (__U3TXInterrupt)?ABSOLUTE (__U3TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b6          0x4 LONG 0x2f3a DEFINED (__U3ErrInterrupt)?ABSOLUTE (__U3ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b8          0x4 LONG 0x2a98 DEFINED (__U3RXInterrupt)?ABSOLUTE (__U3RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ba          0x4 LONG 0x2eba DEFINED (__U3TXInterrupt)?ABSOLUTE (__U3TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000bc          0x4 LONG 0x324 DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
                   0x0000be          0x4 LONG 0x324 DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
                   0x0000c0          0x4 LONG 0x324 DEFINED (__Interrupt86)?ABSOLUTE (__Interrupt86):ABSOLUTE (__DefaultInterrupt)
@@ -3213,142 +3213,142 @@ __c30_signature
  .config_JTAGEN
                   0x0557f0          0x2 build/default/production/mcc_generated_files/mcc.o
 
-.const              0xa00c         0xa0 load address 0x00200c  
- .const             0xa00c         0xa0 build/default/production/main.o
+.const              0xa00c         0xa6 load address 0x00200c  
+ .const             0xa00c         0xa6 build/default/production/main.o
 
-.text             0x0020ac       0x1224
- .text            0x0020ac        0xa04 build/default/production/main.o
-                  0x0020ac                  _longitudString
-                  0x0020d4                  _crearJSONString
-                  0x002142                  _decodificarJSONString
-                  0x0021f2                  _split
-                  0x0022e4                  _clasificar
-                  0x00233a                  _equals
-                  0x002394                  _obtener_pasos
-                  0x00248e                  _toFloat
-                  0x002512                  _obtener_trama
-                  0x0025b2                  _pasarVectores
-                  0x0025ee                  _potencia
-                  0x002646                  _longitud
-                  0x002664                  _enviarMensaje
-                  0x002690                  _configurarI2C
-                  0x0026a4                  _iniciarComunicacion
-                  0x0026bc                  _transmitirDato
-                  0x0026f6                  _transmitirDatos
-                  0x002734                  _recibirDato
-                  0x002764                  _recibirDatos
-                  0x0027cc                  _iniciarI2C
-                  0x0027de                  _detenerI2C
-                  0x0027fe                  _resetearI2C
-                  0x002810                  _leerTemperatura
-                  0x00284a                  _enviarTemp
-                  0x00286e                  _getMessageLength
-                  0x00288c                  _sendMessageToPlatform
-                  0x0028b8                  _sendStart
-                  0x0028c2                  _sendStop
-                  0x0028cc                  _sendContinue
-                  0x0028d6                  _sendConfig
-                  0x0028e6                  _stateMachineSensor
-                  0x00290e                  _eDecodificar
-                  0x002922                  _eClasificar
-                  0x00296c                  _eMedir
-                  0x0029cc                  _aDecodificar
-                  0x0029d6                  _aClasificar
-                  0x0029f8                  _aComenzarMedicion
-                  0x002a04                  _aFrenarMedicion
-                  0x002a0e                  _aConfigurarMedicion
-                  0x002a28                  __T1Interrupt
-                  0x002a68                  __U1RXInterrupt
-                  0x002a92                  __U3RXInterrupt
-                  0x002aa2                  _main
- .text            0x002ab0        0x386 build/default/production/mcc_generated_files/uart1.o
-                  0x002ab0                  _UART1_Initialize
-                  0x002ae4                  _UART1_SetTxInterruptHandler
-                  0x002afc                  __U1TXInterrupt
-                  0x002b58                  _UART1_Transmit_CallBack
-                  0x002b5e                  _UART1_SetRxInterruptHandler
-                  0x002b76                  _UART1_Receive_CallBack
-                  0x002b7c                  __U1ErrInterrupt
-                  0x002b92                  _UART1_Read
-                  0x002bbe                  _UART1_Write
-                  0x002be8                  _UART1_IsRxReady
-                  0x002bfe                  _UART1_IsTxReady
-                  0x002c32                  _UART1_IsTxDone
-                  0x002cc2                  _UART1_ReadBuffer
-                  0x002cfc                  _UART1_WriteBuffer
-                  0x002d36                  _UART1_TransferStatusGet
-                  0x002d7e                  _UART1_Peek
-                  0x002d9e                  _UART1_ReceiveBufferIsEmpty
-                  0x002dae                  _UART1_TransmitBufferIsFull
-                  0x002dbe                  _UART1_StatusGet
-                  0x002dc6                  _UART1_TransmitBufferSizeGet
-                  0x002df4                  _UART1_ReceiveBufferSizeGet
-                  0x002e22                  _UART1_Enable
-                  0x002e2c                  _UART1_Disable
- .text            0x002e36        0x386 build/default/production/mcc_generated_files/uart3.o
-                  0x002e36                  _UART3_Initialize
-                  0x002e6a                  _UART3_SetTxInterruptHandler
-                  0x002e82                  __U3TXInterrupt
-                  0x002ede                  _UART3_Transmit_CallBack
-                  0x002ee4                  _UART3_SetRxInterruptHandler
-                  0x002efc                  _UART3_Receive_CallBack
-                  0x002f02                  __U3ErrInterrupt
-                  0x002f18                  _UART3_Read
-                  0x002f44                  _UART3_Write
-                  0x002f6e                  _UART3_IsRxReady
-                  0x002f84                  _UART3_IsTxReady
-                  0x002fb8                  _UART3_IsTxDone
-                  0x003048                  _UART3_ReadBuffer
-                  0x003082                  _UART3_WriteBuffer
-                  0x0030bc                  _UART3_TransferStatusGet
-                  0x003104                  _UART3_Peek
-                  0x003124                  _UART3_ReceiveBufferIsEmpty
-                  0x003134                  _UART3_TransmitBufferIsFull
-                  0x003144                  _UART3_StatusGet
-                  0x00314c                  _UART3_TransmitBufferSizeGet
-                  0x00317a                  _UART3_ReceiveBufferSizeGet
-                  0x0031a8                  _UART3_Enable
-                  0x0031b2                  _UART3_Disable
- .text            0x0031bc        0x114 build/default/production/mcc_generated_files/reset.o
-                  0x0031bc                  _RESET_GetCause
-                  0x0031c4                  _RESET_CauseHandler
-                  0x0032c8                  _RESET_CauseClearAll
+.text             0x0020b2       0x1256
+ .text            0x0020b2        0xa36 build/default/production/main.o
+                  0x0020b2                  _longitudString
+                  0x0020da                  _crearJSONString
+                  0x002148                  _decodificarJSONString
+                  0x0021f8                  _split
+                  0x0022ea                  _clasificar
+                  0x002340                  _equals
+                  0x00239a                  _obtener_pasos
+                  0x002494                  _toFloat
+                  0x002518                  _obtener_trama
+                  0x0025b8                  _pasarVectores
+                  0x0025f4                  _potencia
+                  0x00264c                  _longitud
+                  0x00266a                  _enviarMensaje
+                  0x002696                  _configurarI2C
+                  0x0026aa                  _iniciarComunicacion
+                  0x0026c2                  _transmitirDato
+                  0x0026fc                  _transmitirDatos
+                  0x00273a                  _recibirDato
+                  0x00276a                  _recibirDatos
+                  0x0027d2                  _iniciarI2C
+                  0x0027e4                  _detenerI2C
+                  0x002804                  _resetearI2C
+                  0x002816                  _leerTemperatura
+                  0x002850                  _enviarTemp
+                  0x002874                  _getMessageLength
+                  0x002892                  _sendMessageToPlatform
+                  0x0028be                  _sendStart
+                  0x0028c8                  _sendStop
+                  0x0028d2                  _sendContinue
+                  0x0028dc                  _sendConfig
+                  0x0028ec                  _stateMachineSensor
+                  0x002914                  _eDecodificar
+                  0x002928                  _eClasificar
+                  0x002972                  _eMedir
+                  0x0029d2                  _aDecodificar
+                  0x0029dc                  _aClasificar
+                  0x0029fe                  _aComenzarMedicion
+                  0x002a0a                  _aFrenarMedicion
+                  0x002a14                  _aConfigurarMedicion
+                  0x002a2e                  __T1Interrupt
+                  0x002a6e                  __U1RXInterrupt
+                  0x002a98                  __U3RXInterrupt
+                  0x002ad6                  _main
+ .text            0x002ae8        0x386 build/default/production/mcc_generated_files/uart1.o
+                  0x002ae8                  _UART1_Initialize
+                  0x002b1c                  _UART1_SetTxInterruptHandler
+                  0x002b34                  __U1TXInterrupt
+                  0x002b90                  _UART1_Transmit_CallBack
+                  0x002b96                  _UART1_SetRxInterruptHandler
+                  0x002bae                  _UART1_Receive_CallBack
+                  0x002bb4                  __U1ErrInterrupt
+                  0x002bca                  _UART1_Read
+                  0x002bf6                  _UART1_Write
+                  0x002c20                  _UART1_IsRxReady
+                  0x002c36                  _UART1_IsTxReady
+                  0x002c6a                  _UART1_IsTxDone
+                  0x002cfa                  _UART1_ReadBuffer
+                  0x002d34                  _UART1_WriteBuffer
+                  0x002d6e                  _UART1_TransferStatusGet
+                  0x002db6                  _UART1_Peek
+                  0x002dd6                  _UART1_ReceiveBufferIsEmpty
+                  0x002de6                  _UART1_TransmitBufferIsFull
+                  0x002df6                  _UART1_StatusGet
+                  0x002dfe                  _UART1_TransmitBufferSizeGet
+                  0x002e2c                  _UART1_ReceiveBufferSizeGet
+                  0x002e5a                  _UART1_Enable
+                  0x002e64                  _UART1_Disable
+ .text            0x002e6e        0x386 build/default/production/mcc_generated_files/uart3.o
+                  0x002e6e                  _UART3_Initialize
+                  0x002ea2                  _UART3_SetTxInterruptHandler
+                  0x002eba                  __U3TXInterrupt
+                  0x002f16                  _UART3_Transmit_CallBack
+                  0x002f1c                  _UART3_SetRxInterruptHandler
+                  0x002f34                  _UART3_Receive_CallBack
+                  0x002f3a                  __U3ErrInterrupt
+                  0x002f50                  _UART3_Read
+                  0x002f7c                  _UART3_Write
+                  0x002fa6                  _UART3_IsRxReady
+                  0x002fbc                  _UART3_IsTxReady
+                  0x002ff0                  _UART3_IsTxDone
+                  0x003080                  _UART3_ReadBuffer
+                  0x0030ba                  _UART3_WriteBuffer
+                  0x0030f4                  _UART3_TransferStatusGet
+                  0x00313c                  _UART3_Peek
+                  0x00315c                  _UART3_ReceiveBufferIsEmpty
+                  0x00316c                  _UART3_TransmitBufferIsFull
+                  0x00317c                  _UART3_StatusGet
+                  0x003184                  _UART3_TransmitBufferSizeGet
+                  0x0031b2                  _UART3_ReceiveBufferSizeGet
+                  0x0031e0                  _UART3_Enable
+                  0x0031ea                  _UART3_Disable
+ .text            0x0031f4        0x114 build/default/production/mcc_generated_files/reset.o
+                  0x0031f4                  _RESET_GetCause
+                  0x0031fc                  _RESET_CauseHandler
+                  0x003300                  _RESET_CauseClearAll
 
-.dinit            0x0032d0         0xc6
- .dinit           0x0032d0         0xc6 data_init
+.dinit            0x003308         0xc6
+ .dinit           0x003308         0xc6 data_init
 
-.text             0x003396        0x230
- .text            0x003396         0xb6 build/default/production/mcc_generated_files/tmr1.o
-                  0x003396                  _TMR1_Initialize
-                  0x0033b8                  _TMR1_Period16BitSet
-                  0x0033ca                  _TMR1_Period16BitGet
-                  0x0033d2                  _TMR1_Counter16BitSet
-                  0x0033e4                  _TMR1_Counter16BitGet
-                  0x0033ec                  _TMR1_CallBack
-                  0x0033f2                  _TMR1_SetInterruptHandler
-                  0x003402                  _TMR1_Start
-                  0x003412                  _TMR1_Stop
-                  0x00341c                  _TMR1_GetElapsedThenClear
-                  0x003434                  _TMR1_SoftwareCounterGet
-                  0x003440                  _TMR1_SoftwareCounterClear
- .text            0x00344c         0x88 build/default/production/mcc_generated_files/pin_manager.o
-                  0x00344c                  _PIN_MANAGER_Initialize
- .text            0x0034d4         0x50 build/default/production/mcc_generated_files/clock.o
-                  0x0034d4                  _CLOCK_Initialize
- .text            0x003524         0x4c build/default/production/mcc_generated_files/interrupt_manager.o
-                  0x003524                  _INTERRUPT_Initialize
- .text            0x003570         0x36 build/default/production/mcc_generated_files/system.o
-                  0x00358e                  _SYSTEM_Initialize
- .text            0x0035a6         0x20 build/default/production/mcc_generated_files/mcc.o
-                  0x0035a6                  _OSCILLATOR_Initialize
-                  0x0035ae                  _SYSTEM_GetResetCause
-                  0x0035b6                  _SYSTEM_ResetCauseHandler
-                  0x0035be                  _SYSTEM_ResetCauseClearAll
+.text             0x0033ce        0x230
+ .text            0x0033ce         0xb6 build/default/production/mcc_generated_files/tmr1.o
+                  0x0033ce                  _TMR1_Initialize
+                  0x0033f0                  _TMR1_Period16BitSet
+                  0x003402                  _TMR1_Period16BitGet
+                  0x00340a                  _TMR1_Counter16BitSet
+                  0x00341c                  _TMR1_Counter16BitGet
+                  0x003424                  _TMR1_CallBack
+                  0x00342a                  _TMR1_SetInterruptHandler
+                  0x00343a                  _TMR1_Start
+                  0x00344a                  _TMR1_Stop
+                  0x003454                  _TMR1_GetElapsedThenClear
+                  0x00346c                  _TMR1_SoftwareCounterGet
+                  0x003478                  _TMR1_SoftwareCounterClear
+ .text            0x003484         0x88 build/default/production/mcc_generated_files/pin_manager.o
+                  0x003484                  _PIN_MANAGER_Initialize
+ .text            0x00350c         0x50 build/default/production/mcc_generated_files/clock.o
+                  0x00350c                  _CLOCK_Initialize
+ .text            0x00355c         0x4c build/default/production/mcc_generated_files/interrupt_manager.o
+                  0x00355c                  _INTERRUPT_Initialize
+ .text            0x0035a8         0x36 build/default/production/mcc_generated_files/system.o
+                  0x0035c6                  _SYSTEM_Initialize
+ .text            0x0035de         0x20 build/default/production/mcc_generated_files/mcc.o
+                  0x0035de                  _OSCILLATOR_Initialize
+                  0x0035e6                  _SYSTEM_GetResetCause
+                  0x0035ee                  _SYSTEM_ResetCauseHandler
+                  0x0035f6                  _SYSTEM_ResetCauseClearAll
 
-.init.delay32     0x0035c6         0x1c
- .init.delay32    0x0035c6         0x1c c:/program files (x86)/microchip/xc16/v1.25/bin/bin/../../lib\liblega-pic30-elf.a(delay32ep.Leo)
-                  0x0035c6                  ___delay32
+.init.delay32     0x0035fe         0x1c
+ .init.delay32    0x0035fe         0x1c c:/program files (x86)/microchip/xc16/v1.25/bin/bin/../../lib\liblega-pic30-elf.a(delay32ep.Leo)
+                  0x0035fe                  ___delay32
 
-.text             0x0035e2         0x16
- .text            0x0035e2         0x16 build/default/production/mcc_generated_files/traps.o
-                  0x0035e2                  _TRAPS_halt_on_error
+.text             0x00361a         0x16
+ .text            0x00361a         0x16 build/default/production/mcc_generated_files/traps.o
+                  0x00361a                  _TRAPS_halt_on_error
