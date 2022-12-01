@@ -14,7 +14,7 @@
 #include "stateMachine.h"
 
 
-
+unsigned char uart3Data[50] = {'\0'}, uart3Counter = 0;
 
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
@@ -23,10 +23,9 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
     contador++;
     if( contador == 60 ){
         
-        //stateTemp = DECODIFICAR;
+        stateTemp = DECODIFICAR;
         datos_recepcion_uart1[ ubicacion_actual ] = '\0';
         ubicacion_actual = 0;
-        enviarMensaje(datos_recepcion_uart1);
         T1CONbits.TON = 0;
     }
 }
@@ -48,12 +47,15 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     IFS5bits.U3RXIF = 0;
     unsigned char data = U3RXREG;
     if(data == 0x0D){
-        enviarMensaje(datos_recepcion_uart1);
-        ubicacion_actual = 0;
+        uart3Data[uart3Counter] = '\0';
+        if(equals(uart3Data, CONTINUE_COMMAND)){
+            stateTemp = MEDIR;
+        }
+        uart3Counter = 0;
     }
     else{
-        datos_recepcion_uart1[ ubicacion_actual ] = data;
-        ubicacion_actual++;
+        uart3Data[ uart3Counter ] = data;
+        uart3Counter++;
     }
     
 }
@@ -65,7 +67,7 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-   
+    
     while (1)
     {
         stateMachineSensor();

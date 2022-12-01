@@ -5,9 +5,9 @@
 #include "plataforma.h"
 
 
-#define START "Start"
-#define STOP  "Stop"
-#define CONFIG  "Config"
+#define START "START"
+#define STOP  "STOP"
+#define CONFIG  "CONFIG"
 
 enum states{
     ESPERAR = 0,
