@@ -23,7 +23,7 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
-unsigned char stateTemp, prevStateTemp = ESPERAR, ESPERAR;
+unsigned char stateTemp = ESPERAR, prevStateTemp = ESPERAR;
 recibir_t jsonRecibido;
 double x, y, h, k;
 
