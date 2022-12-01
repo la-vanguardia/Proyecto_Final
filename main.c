@@ -49,11 +49,13 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     unsigned char data = U3RXREG;
     if(data == 0x0D){
         uart3Data[uart3Counter] = '\0';
-        unsigned char result = equals(uart3Data, "CONTINUE");
-        UART1_Write(uart3Counter + 0x2F);
-        UART1_Write(getMessageLength(uart3Data) + 0x30);
-        UART1_Write(getMessageLength(CONTINUE_COMMAND) + 0x30);
-        UART1_Write(0x0D);
+        unsigned char result = 1;
+        for( unsigned char i = 0; i < 8; i++ ){
+            if( uart3Data[i] != CONTINUE_COMMAND[i] ){
+                result = 0;
+                break;
+            }
+        }
         enviarMensaje(uart3Data);
         UART1_Write(result + 0x30);
         if (result == 1){

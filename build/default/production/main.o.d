@@ -1,12 +1,24 @@
-build/default/production/main.o:  \
-main.c  \
-mcc_generated_files/system.h  \
- mcc_generated_files/system_types.h  \
-mcc_generated_files/uart1.h  \
- stateMachine.h  \
-json.h  \
-recepcion.h  \
-I2C.h  \
-temperatura.h  \
-plataforma.h  \
- mcc_generated_files/uart3.h 
+build/default/production/main.o: main.c mcc_generated_files/system.h \
+ mcc_generated_files/system_types.h mcc_generated_files/uart1.h \
+ stateMachine.h json.h recepcion.h I2C.h temperatura.h plataforma.h \
+ mcc_generated_files/uart3.h
+
+mcc_generated_files/system.h:
+
+mcc_generated_files/system_types.h:
+
+mcc_generated_files/uart1.h:
+
+stateMachine.h:
+
+json.h:
+
+recepcion.h:
+
+I2C.h:
+
+temperatura.h:
+
+plataforma.h:
+
+mcc_generated_files/uart3.h:
