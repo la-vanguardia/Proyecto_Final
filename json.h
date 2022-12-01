@@ -3,6 +3,7 @@
 #include "mcc_generated_files/uart1.h"
 
 
+
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
@@ -179,7 +180,7 @@ unsigned char equals(unsigned char *String1, unsigned char *String2){
         result = 1;
         for( i=0; i < longitud1; i++ ){
             if( String1[i] != String2[i] ){
-                result = 0;
+                result = 0;              
                 break;
             }
         }

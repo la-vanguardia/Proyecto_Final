@@ -101,7 +101,6 @@ void eMedir(){
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
-    __delay_ms(1000);
     stateTemp = ESPERAR;
 }
 
