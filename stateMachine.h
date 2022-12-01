@@ -130,6 +130,7 @@ void aComenzarMedicion(){
 
 void aFrenarMedicion(){
     //TODO: debe enviar una se�al de stop
+    enviarMensaje("SEND STOP TO PLATFORM");
     sendStop();
     stateTemp = ESPERAR;
 }

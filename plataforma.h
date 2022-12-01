@@ -9,6 +9,8 @@
 #define CONFIG_COMMAND "CONFIG"
 #define CONTINUE_COMMAND "CONTINUE"
 
+#define MEASURE_COMMAND "MEASURE"
+
 
 unsigned char getMessageLength(unsigned char* message);
 void sendMessageToPlatform(unsigned char* message);
