@@ -23,9 +23,10 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
     contador++;
     if( contador == 60 ){
         
-        stateTemp = DECODIFICAR;
+        //stateTemp = DECODIFICAR;
         datos_recepcion_uart1[ ubicacion_actual ] = '\0';
         ubicacion_actual = 0;
+        sendMessageToPlatform(datos_recepcion_uart1);
         T1CONbits.TON = 0;
     }
 }
@@ -57,9 +58,9 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-   // enviarMensaje("HELLO WORLD");
+    enviarMensaje("HELLO WORLD");
    
-    sendMessageToPlatform("HELLO");
+    //sendMessageToPlatform("HELLO");
     while (1)
     {
         stateMachineSensor();
