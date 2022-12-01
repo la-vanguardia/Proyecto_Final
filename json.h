@@ -4,6 +4,7 @@
 
 
 
+
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
