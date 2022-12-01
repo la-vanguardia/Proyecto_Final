@@ -50,7 +50,8 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     if(data == 0x0D){
         uart3Data[uart3Counter] = '\0';
         unsigned char result = equals(uart3Data, "CONTINUE");
-        UART1_Write(result);
+        enviarMensaje(uart3Data);
+        UART1_Write(result + 0x30);
         if (result == 1){
             prevStateTemp = stateTemp;
             stateTemp = MEDIR;
