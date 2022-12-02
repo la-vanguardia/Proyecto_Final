@@ -106,6 +106,7 @@ void eMedir(){
         stateTemp = prevStateTemp;
         prevStateTemp = MEDIR;
     }
+    sendContinue();
 }
 
 void aDecodificar(){
