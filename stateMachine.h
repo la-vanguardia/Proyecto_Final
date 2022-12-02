@@ -56,6 +56,8 @@ void stateMachineSensor(){
             eMedir();
             break;
         default: 
+            prevStateTemp = stateTemp;
+            stateTemp = ESPERAR;
             break;
         
     }
@@ -102,6 +104,7 @@ void eMedir(){
     if(prevStateTemp != CLASIFICAR){
         sendContinue();
     }
+    prevStateTemp = stateTemp;
     stateTemp = ESPERAR;
 }
 
