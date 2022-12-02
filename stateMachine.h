@@ -24,7 +24,6 @@ enum tramasClasificadas{
 };
 
 unsigned char stateTemp = ESPERAR, prevStateTemp = ESPERAR;
-recibir_t jsonRecibido;
 double x, y, h, k;
 
 
@@ -65,8 +64,6 @@ void stateMachineSensor(){
 
 void eDecodificar(){
     decodificarJSONString( datos_recepcion_uart1 );
-    jsonRecibido.Pasos = paso;
-    jsonRecibido.trama = trmaUC;
 }
 
 void eClasificar(){

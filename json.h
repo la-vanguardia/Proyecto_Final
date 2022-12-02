@@ -1,6 +1,7 @@
 #include <math.h>
 
 #include "mcc_generated_files/uart1.h"
+
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
@@ -24,6 +25,8 @@ enum{
     PASOS,
     ERROR
 };
+
+recibir_t jsonRecibido;
 
 
 unsigned char longitudString(unsigned char *vect);
@@ -62,8 +65,6 @@ void decodificarJSONString(unsigned char *json){
     
     split(Parametros, Valores, json);
    
-    
-    
     while( done == 0 ){
         if( Parametros[i] != '-' ){
             if( Parametros[i] == '\0' ){
@@ -77,13 +78,16 @@ void decodificarJSONString(unsigned char *json){
         else{
             Parametro[j] = '\0';
             j=0;
-            enviarMensaje(Parametro);
+           
             clase = clasificar( Parametro );
+            
             switch( clase ){
                 case TRAMA:
+                    enviarMensaje("TRAMA");
                     obtener_trama( trama, Valores );
                     break;
                 case PASOS:
+                    enviarMensaje("PASOS");
                     obtener_pasos( paso, Valores );
                     break;
                 case ERROR:
@@ -257,7 +261,7 @@ double toFloat(unsigned char *value, unsigned char maxima_cifra_decimal ){
 void obtener_trama(unsigned char *Trama, unsigned char *Valores){
     unsigned char trama[10] = {'\0'}, i=0, j=0,ValoresActualizados[60] = {'\0'}, valor;
     unsigned char longitudValores = longitudString( Valores ), accion = 0;
-
+   
     
     for( i=0; i<longitudValores; i++ ){
 
@@ -286,8 +290,7 @@ void obtener_trama(unsigned char *Trama, unsigned char *Valores){
         
         
     }
-    
-    
+    jsonRecibido.trama = trama;
     pasarVectores(Trama, trama);
     pasarVectores( Valores, ValoresActualizados );
 }
