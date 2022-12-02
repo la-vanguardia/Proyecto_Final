@@ -1,10 +1,6 @@
 #include <math.h>
 
 #include "mcc_generated_files/uart1.h"
-
-
-
-
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
@@ -110,8 +106,7 @@ void decodificarJSONString(unsigned char *json){
 void split( unsigned char *Parametros, unsigned char *Valores, unsigned char *String ){
     unsigned char longitud = longitudString( String ), i, k=0, j=0, done=0;
     unsigned char is_vector = 0;
-    for( i=1; i<longitud-1; i++){
-        
+    for( i=0; i<longitud; i++){
         switch( String[i] ){
             case ':':
                 Parametros[k] = '-';
@@ -137,6 +132,10 @@ void split( unsigned char *Parametros, unsigned char *Valores, unsigned char *St
                 break;
             case '\'':
                 break;
+            case '{':
+                break;
+            case '}':
+                break;
             default:
                 if(done){
                     Valores[j] = String[i];
@@ -149,9 +148,6 @@ void split( unsigned char *Parametros, unsigned char *Valores, unsigned char *St
         }
         
     }
-    
-    
-    
 }
 
 unsigned char clasificar( unsigned char *Parametro ){
