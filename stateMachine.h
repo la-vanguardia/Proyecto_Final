@@ -121,6 +121,7 @@ void aDecodificar(){
 }
 
 void aClasificar(){
+    enviarMensaje("ESTA CLASIFICANDO");
     switch( trmaUC ){
         case StartDecodificado:
             aComenzarMedicion();
