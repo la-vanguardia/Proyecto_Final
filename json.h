@@ -284,7 +284,6 @@ void obtener_trama(unsigned char *Trama, unsigned char *Valores){
         
         
     }
-    enviarMensaje(trama);
     pasarVectores( Valores, ValoresActualizados );
 }
 
