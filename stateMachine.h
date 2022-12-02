@@ -67,11 +67,11 @@ void eDecodificar(){
 }
 
 void eClasificar(){
-    unsigned char start = equals( jsonRecibido.trama, START  );
-    unsigned char stop = equals( jsonRecibido.trama, STOP );
-    unsigned char config = equals( jsonRecibido.trama, CONFIG );
+    unsigned char start = equals( trama, START  );
+    unsigned char stop = equals( trama, STOP );
+    unsigned char config = equals(trama, CONFIG );
     unsigned char resultado = ErrorDecodificado;
-    enviarMensaje(jsonRecibido.trama);
+    enviarMensaje(trama);
     enviarMensaje("valores de comparacion start - stop - equal");
     UART1_Write(start + 0x30);
     UART1_Write(stop + 0x30);

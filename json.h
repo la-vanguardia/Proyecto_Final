@@ -5,7 +5,7 @@
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
-double paso[2] = {0.0, 0.0};
+double pasos[2] = {0.0, 0.0};
 
 
 typedef struct trama_enviar{
@@ -27,6 +27,7 @@ enum{
 };
 
 recibir_t jsonRecibido;
+
 
 
 unsigned char longitudString(unsigned char *vect);
@@ -192,7 +193,7 @@ void obtener_pasos(double *Pasos, unsigned char *Valores){
     unsigned char longitudValores = longitudString( Valores );
     unsigned char valor1[10] = {'\0'};
     unsigned char valor2[10] = {'\0'};
-    double pasos[2] = {0.0, 0.0};
+    
     while( i < longitudValores ){
         switch( valores ){
             case 0:
@@ -230,7 +231,6 @@ void obtener_pasos(double *Pasos, unsigned char *Valores){
     pasos[1] = toFloat( valor2, MAX_CIFRA_DECIMAL );
     
     pasarVectores(Valores, ValoresActualizados);
-    pasarVectores(Pasos, pasos);
 }
 
 
@@ -253,7 +253,7 @@ double toFloat(unsigned char *value, unsigned char maxima_cifra_decimal ){
 }
 
 void obtener_trama(unsigned char *Trama, unsigned char *Valores){
-    unsigned char trama[10] = {'\0'}, i=0, j=0,ValoresActualizados[60] = {'\0'}, valor;
+    unsigned char i=0, j=0,ValoresActualizados[60] = {'\0'}, valor;
     unsigned char longitudValores = longitudString( Valores ), accion = 0;
    
     
@@ -285,8 +285,6 @@ void obtener_trama(unsigned char *Trama, unsigned char *Valores){
         
     }
     enviarMensaje(trama);
-    pasarVectores(Trama, trama);
-    enviarMensaje(Trama);
     pasarVectores( Valores, ValoresActualizados );
 }
 
