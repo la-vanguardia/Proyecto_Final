@@ -96,12 +96,8 @@ void decodificarJSONString(unsigned char *json){
             
         }
         
-        i++;
+       i++;
     }
-    
-   
-    
-
 }
 
 
@@ -288,7 +284,9 @@ void obtener_trama(unsigned char *Trama, unsigned char *Valores){
         
         
     }
+    enviarMensaje(trama);
     pasarVectores(Trama, trama);
+    enviarMensaje(Trama);
     pasarVectores( Valores, ValoresActualizados );
 }
 
