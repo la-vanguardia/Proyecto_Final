@@ -1,7 +1,6 @@
 #include <math.h>
 
 #include "mcc_generated_files/uart1.h"
-#include "recepcion.h"
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
