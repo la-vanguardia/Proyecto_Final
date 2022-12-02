@@ -35,9 +35,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
 {
     IFS0bits.U1RXIF = 0;
     datos_recepcion_uart1[ ubicacion_actual ] = U1RXREG;
-    
-    ubicacion_actual++;
-    
+    ubicacion_actual++;    
     contador = 0;
     TMR1 = 0;
     T1CONbits.TON = 1;   
@@ -49,13 +47,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     unsigned char data = U3RXREG;
     if(data == 0x0D){
         uart3Data[uart3Counter] = '\0';
-        unsigned char result = 1;
-        for( unsigned char i = 0; i < 8; i++ ){
-            if( uart3Data[i] != CONTINUE_COMMAND[i] ){
-                result = 0;
-                break;
-            }
-        }
+        unsigned char result = equals(uart3Data, CONTINUE_COMMAND);
         enviarMensaje(uart3Data);
         UART1_Write(result + 0x30);
         if (result == 1){

@@ -70,8 +70,10 @@ void eDecodificar(){
 }
 
 void eClasificar(){
-    unsigned char start = equals( START, jsonRecibido.trama  ), stop = equals( STOP, jsonRecibido.trama );
-    unsigned char config = equals( CONFIG, jsonRecibido.trama );
+    enviarMensaje(jsonRecibido.trama);
+    unsigned char start = equals( jsonRecibido.trama, START  );
+    unsigned char stop = equals( jsonRecibido.trama, STOP );
+    unsigned char config = equals( jsonRecibido.trama, CONFIG );
     unsigned char resultado = ErrorDecodificado;
     if( start ){
         resultado = StartDecodificado;
