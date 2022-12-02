@@ -99,17 +99,14 @@ void eMedir(){
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
-    if(prevStateTemp == MEDIR){
-        stateTemp = ESPERAR;
+    if(prevStateTemp ~= CLASIFICAR){
+        sendContinue();
     }
-    else{
-        stateTemp = prevStateTemp;
-        prevStateTemp = MEDIR;
-    }
-    sendContinue();
+    stateTemp = ESPERAR;
 }
 
 void aDecodificar(){
+    prevStateTemp = stateTemp;
     stateTemp = CLASIFICAR;
 }
 
@@ -134,12 +131,14 @@ void aClasificar(){
 void aComenzarMedicion(){
     //TODO: enviar se�al de start a la plataforma
     sendStart();
+    prevStateTemp = stateTemp;
     stateTemp = MEDIR;
 }
 
 void aFrenarMedicion(){
     //TODO: debe enviar una se�al de stop
     sendStop();
+    prevStateTemp = stateTemp;
     stateTemp = ESPERAR;
 }
 
@@ -147,5 +146,6 @@ void aConfigurarMedicion(){
     //TODO: envia a la plataforma los pasos h (eje x) y k (eje y)
     h = jsonRecibido.Pasos[0];
     k = jsonRecibido.Pasos[1];
+    prevStateTemp = stateTemp;
     stateTemp = ESPERAR;
 }
