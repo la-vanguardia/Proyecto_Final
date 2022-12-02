@@ -49,8 +49,8 @@ void stateMachineSensor(){
             aDecodificar();
             break;
         case( CLASIFICAR ):
-            aClasificar();
             eClasificar();
+            aClasificar();
             break;
         case( MEDIR ):
             eMedir();
