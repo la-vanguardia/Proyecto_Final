@@ -1,6 +1,7 @@
 #include <math.h>
 
 #include "mcc_generated_files/uart1.h"
+#include "recepcion.h"
 #define MAX_CIFRA_DECIMAL 3
 
 unsigned char trama[10] = {'\0'};
@@ -52,7 +53,7 @@ void crearJSONString(trama_t trama, unsigned char *json){
 }
 
 void decodificarJSONString(unsigned char *json){
-    unsigned char i=0, j=0, marcador = 0;
+    unsigned char i=0, j=0, k=0, w=0, marcador = 0;
     unsigned char Parametros[60] = {'\0'}, done = 0;
     unsigned char Parametro[15] = {'\0'};
     unsigned char Valores[30] = {'\0'};
@@ -77,17 +78,17 @@ void decodificarJSONString(unsigned char *json){
         else{
             Parametro[j] = '\0';
             j=0;
-            
+            enviarMensaje(Parametro);
             clase = clasificar( Parametro );
-            
             switch( clase ){
                 case TRAMA:
-                    obtener_trama( trama ,Valores );
+                    obtener_trama( trama, Valores );
                     break;
                 case PASOS:
                     obtener_pasos( paso, Valores );
                     break;
                 case ERROR:
+                    enviarMensaje("ERROR: clase de parametro no encontrada");
                     done = 1;
                     break;
             }
@@ -161,8 +162,8 @@ unsigned char clasificar( unsigned char *Parametro ){
                 clase = TRAMA;
             }
             break;
-        case 'p':
-            is = equals( Parametro, "paso" );
+        case 'P':
+            is = equals( Parametro, "Pasos" );
             if(is == 1){
                 clase = PASOS;
             }
