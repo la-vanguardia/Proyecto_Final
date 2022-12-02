@@ -70,11 +70,15 @@ void eDecodificar(){
 }
 
 void eClasificar(){
-    enviarMensaje(jsonRecibido.trama);
     unsigned char start = equals( jsonRecibido.trama, START  );
     unsigned char stop = equals( jsonRecibido.trama, STOP );
     unsigned char config = equals( jsonRecibido.trama, CONFIG );
     unsigned char resultado = ErrorDecodificado;
+    enviarMensaje(jsonRecibido.trama);
+    enviarMensaje("valores de comparacion start - stop - equal");
+    UART1_Write(start + 0x30);
+    UART1_Write(stop + 0x30);
+    UART1_Write(config + 0x30);
     if( start ){
         resultado = StartDecodificado;
     }
@@ -126,6 +130,10 @@ void aClasificar(){
             break;
         case ConfigDecodificado:
             aConfigurarMedicion();
+            break;
+        case ErrorDecodificado:
+            enviarMensaje("ERROR: trama invalida");
+            stateTemp = ESPERAR;
             break;
     }
 }

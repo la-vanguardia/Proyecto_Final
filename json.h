@@ -135,6 +135,8 @@ void split( unsigned char *Parametros, unsigned char *Valores, unsigned char *St
                 break;
             case '\"':
                 break;
+            case '\'':
+                break;
             default:
                 if(done){
                     Valores[j] = String[i];
