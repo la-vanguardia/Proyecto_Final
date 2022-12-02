@@ -55,7 +55,7 @@ void crearJSONString(trama_t trama, unsigned char *json){
 }
 
 void decodificarJSONString(unsigned char *json){
-    unsigned char i=0, j=0, k=0, w=0, marcador = 0;
+    unsigned char i=0, j=0, marcador = 0;
     unsigned char Parametros[60] = {'\0'}, done = 0;
     unsigned char Parametro[15] = {'\0'};
     unsigned char Valores[30] = {'\0'};
@@ -83,12 +83,10 @@ void decodificarJSONString(unsigned char *json){
             
             switch( clase ){
                 case TRAMA:
-                    enviarMensaje("TRAMA");
-                    obtener_trama( trama, Valores );
+                    obtener_trama( jsonRecibido.trama, Valores );
                     break;
                 case PASOS:
-                    enviarMensaje("PASOS");
-                    obtener_pasos( paso, Valores );
+                    obtener_pasos( jsonRecibido.Pasos, Valores );
                     break;
                 case ERROR:
                     enviarMensaje("ERROR: clase de parametro no encontrada");
@@ -290,7 +288,6 @@ void obtener_trama(unsigned char *Trama, unsigned char *Valores){
         
         
     }
-    jsonRecibido.trama = trama;
     pasarVectores(Trama, trama);
     pasarVectores( Valores, ValoresActualizados );
 }
