@@ -49,6 +49,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     if(data == 0x0D){
         uart3Data[uart3Counter] = '\0';
         unsigned char result = equals(uart3Data, MEASURE_COMMAND);
+        enviarMensaje(uart3Data);
         if (result == 1){
             enviarMensaje("MEDICION");
             stateTemp = MEDIR;
