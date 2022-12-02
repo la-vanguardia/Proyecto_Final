@@ -66,7 +66,7 @@ void decodificarJSONString(unsigned char *json){
     
     while( done == 0 ){
         if( Parametros[i] != '-' ){
-            if( Parametros[i] == '/0' ){
+            if( Parametros[i] == '\0' ){
                 done = 1;
             }
             else{
