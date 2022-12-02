@@ -71,21 +71,13 @@ void eClasificar(){
     unsigned char stop = equals( trama, STOP );
     unsigned char config = equals(trama, CONFIG );
     unsigned char resultado = ErrorDecodificado;
-    enviarMensaje(trama);
-    enviarMensaje("valores de comparacion start - stop - equal");
-    UART1_Write(start + 0x30);
-    UART1_Write(stop + 0x30);
-    UART1_Write(config + 0x30);
     if( start ){
-        enviarMensaje("ESTAMOS EN START");
         resultado = StartDecodificado;
     }
     else if( stop ){
-        enviarMensaje("Estamos en STOP");
         resultado = StopDecodificado;
     }
     else if( config ){
-        enviarMensaje("ESTAMOS CONFIGURANDO");
         resultado = ConfigDecodificado;
     }
     trmaUC = resultado;
@@ -106,7 +98,7 @@ void eMedir(){
     
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
-    //enviarTemp( mediciones );
+    enviarTemp( mediciones );
     if(prevStateTemp == MEDIR){
         stateTemp = ESPERAR;
     }
@@ -121,7 +113,6 @@ void aDecodificar(){
 }
 
 void aClasificar(){
-    enviarMensaje("ESTA CLASIFICANDO");
     switch( trmaUC ){
         case StartDecodificado:
             aComenzarMedicion();
@@ -147,7 +138,6 @@ void aComenzarMedicion(){
 
 void aFrenarMedicion(){
     //TODO: debe enviar una se�al de stop
-    enviarMensaje("SEND STOP TO PLATFORM");
     sendStop();
     stateTemp = ESPERAR;
 }
