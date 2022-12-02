@@ -77,12 +77,15 @@ void eClasificar(){
     UART1_Write(stop + 0x30);
     UART1_Write(config + 0x30);
     if( start ){
+        enviarMensaje("ESTAMOS EN START");
         resultado = StartDecodificado;
     }
     else if( stop ){
+        enviarMensaje("Estamos en STOP");
         resultado = StopDecodificado;
     }
     else if( config ){
+        enviarMensaje("ESTAMOS CONFIGURANDO");
         resultado = ConfigDecodificado;
     }
     trmaUC = resultado;
