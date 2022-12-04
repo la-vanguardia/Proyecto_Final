@@ -15,8 +15,6 @@
 
 
 unsigned char uart3Data[50] = {'\0'}, uart3Counter = 0;
-void updateState(unsigned char newState);
-
 
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
@@ -63,14 +61,6 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     }
     
 }
-
-void updateState(unsigned char newState){
-    if(stateTemp == ESPERAR){
-        prevStateTemp = stateTemp;
-        stateTemp = newState;
-    }
-}
-
 
 int main(void)
 {

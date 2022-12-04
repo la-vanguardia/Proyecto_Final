@@ -23,11 +23,12 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
-unsigned char stateTemp = ESPERAR, prevStateTemp = ESPERAR;
+unsigned char stateTemp = ESPERAR;
 double x, y, h, k;
 
-
 unsigned char trmaUC;
+
+
 
 void stateMachineSensor();
 
@@ -67,8 +68,8 @@ void eDecodificar(){
 }
 
 void eClasificar(){
-    unsigned char start = equals( trama, START  );
-    unsigned char stop = equals( trama, STOP );
+    unsigned char start = equals(trama, START  );
+    unsigned char stop = equals(trama, STOP );
     unsigned char config = equals(trama, CONFIG );
     unsigned char resultado = ErrorDecodificado;
     if( start ){
@@ -84,30 +85,25 @@ void eClasificar(){
 }
 
 void eMedir(){
+    x += h;
+    y += k;
     trama_t mediciones;
     unsigned char json[70] = {'\0'};
     
-    double ubicacion[2] = {0, 0};
-    double temp[4] = {0.0, 0.0, 0.0, 0.0};
-    unsigned char trama[50] = "hola";
+    double ubicacion[2] = {x, y};
+    double temp[1] = {0.0};
     
     
     mediciones.ubicacion = ubicacion;
-    mediciones.reversa = 0;
-    mediciones.trama = trama;
     
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );
-    if(prevStateTemp != CLASIFICAR){
-        sendContinue();
-    }
-    prevStateTemp = stateTemp;
+    sendContinue();
     stateTemp = ESPERAR;
 }
 
 void aDecodificar(){
-    prevStateTemp = stateTemp;
     stateTemp = CLASIFICAR;
 }
 
@@ -130,23 +126,22 @@ void aClasificar(){
 }
 
 void aComenzarMedicion(){
-    //TODO: enviar se�al de start a la plataforma
+    //Lleva al origen las medidciones
+    x = 0;
+    y = 0;
+    
     sendStart();
-    prevStateTemp = stateTemp;
-    stateTemp = MEDIR;
+    stateTemp = ESPERAR;
 }
 
 void aFrenarMedicion(){
-    //TODO: debe enviar una se�al de stop
+    
     sendStop();
-    prevStateTemp = stateTemp;
     stateTemp = ESPERAR;
 }
 
 void aConfigurarMedicion(){
-    //TODO: envia a la plataforma los pasos h (eje x) y k (eje y)
-    h = jsonRecibido.Pasos[0];
-    k = jsonRecibido.Pasos[1];
-    prevStateTemp = stateTemp;
+    //TODO: envia a la plataforma los pasos h (eje x) y k (eje y
     stateTemp = ESPERAR;
+    sendConfig(h, k);
 }
