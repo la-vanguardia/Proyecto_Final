@@ -1,8 +1,6 @@
 
 #include "mcc_generated_files/uart3.h"
 
-
-
 //Aca se encuentran las funciones para comunicacion de la plataforma
 
 #define STOP_COMMAND "STOP"

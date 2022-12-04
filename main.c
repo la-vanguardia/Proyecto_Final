@@ -21,23 +21,26 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
 {
     IFS0bits.T1IF = 0;
     contador++;
-    if( contador == 60 ){
-        
-        stateTemp = DECODIFICAR;
-        datos_recepcion_uart1[ ubicacion_actual ] = '\0';
-        ubicacion_actual = 0;
-        T1CONbits.TON = 0;
-    }
+    
+    //TODO: analizar eliminacion del T1
 }
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
 {
     IFS0bits.U1RXIF = 0;
-    datos_recepcion_uart1[ ubicacion_actual ] = U1RXREG;
-    ubicacion_actual++;    
-    contador = 0;
-    TMR1 = 0;
-    T1CONbits.TON = 1;   
+    unsigned char data = U1RXREG;
+        
+    
+    if(data == 0x0D){
+        stateTemp = DECODIFICAR;
+        datos_recepcion_uart1[ ubicacion_actual ] = '\0';
+        ubicacion_actual = 0;
+    }
+    else{
+        datos_recepcion_uart1[ ubicacion_actual ] = data;
+        ubicacion_actual++;
+    }
+
 }
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
