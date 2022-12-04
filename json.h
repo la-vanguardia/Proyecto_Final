@@ -29,8 +29,6 @@ enum{
 recibir_t jsonRecibido;
 
 
-
-unsigned char longitudString(unsigned char *vect);
 void crearJSONString(trama_t trama, unsigned char *json);
 void decodificarJSONString(unsigned char *json);
 void split( unsigned char *Parametros, unsigned char *Valores, unsigned char *String);
@@ -161,7 +159,7 @@ unsigned char clasificar( unsigned char *Parametro ){
             }
             break;
         case 'P':
-            is = equals( Parametro, "Pasos" );
+            is = equals( Parametro, "pasos" );
             if(is == 1){
                 clase = PASOS;
             }
@@ -171,22 +169,7 @@ unsigned char clasificar( unsigned char *Parametro ){
     return clase;
 }
 
-unsigned char equals(unsigned char *String1, unsigned char *String2){
-    unsigned char longitud1 = longitudString( String1 ), longitud2 = longitudString( String2 );
-    unsigned char result = 0, i;
-    if( longitud1 == longitud2 ){
-        result = 1;
-        for( i=0; i < longitud1; i++ ){
-            if( String1[i] != String2[i] ){
-                result = 0;              
-                break;
-            }
-        }
-    }
-    
-    return result;
-    
-}
+
 
 void obtener_pasos(double *Pasos, unsigned char *Valores){
     unsigned char ValoresActualizados[60] = {'\0'}, i=0, j=0, valores = 0;

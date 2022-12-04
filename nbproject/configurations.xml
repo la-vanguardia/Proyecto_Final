@@ -27,6 +27,7 @@
       <itemPath>temperatura.h</itemPath>
       <itemPath>stateMachine.h</itemPath>
       <itemPath>plataforma.h</itemPath>
+      <itemPath>utilities.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

@@ -2,6 +2,7 @@
 #include "mcc_generated_files/uart3.h"
 
 
+
 //Aca se encuentran las funciones para comunicacion de la plataforma
 
 #define STOP_COMMAND "STOP"
@@ -12,23 +13,17 @@
 #define MEASURE_COMMAND "MEASURE"
 
 
-unsigned char getMessageLength(unsigned char* message);
+
 void sendMessageToPlatform(unsigned char* message);
 void sendStart();
 void sendConfig(double h, double k);
 void sendStop();
 void sendCommand(char* command);
 
-unsigned char getMessageLength(unsigned char* message){
-    unsigned char length = 0;
-    while( message[ length ] != '\0' ){
-        length++;
-    }
-    return length;
-}
+
 
 void sendMessageToPlatform(unsigned char* message){
-    unsigned char length = getMessageLength( message );
+    unsigned char length = getLength( message );
     unsigned char i;
     for( i=0; i < length; i++ ){
         UART3_Write( message[ i ] );
@@ -49,5 +44,8 @@ void sendContinue(){
 }
 
 void sendConfig(double h, double k){
-    sendMessageToPlatform(CONFIG_COMMAND);
+    unsigned char configMessage[20] = {'\0'};
+    sprintf(configMessage, '%s-%.2f-%.2f', CONFIG_COMMAND, h, k);
+    sendMessageToPlatform(configMessage);
+    
 }
