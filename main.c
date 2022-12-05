@@ -29,8 +29,6 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
 {
     IFS0bits.U1RXIF = 0;
     unsigned char data = U1RXREG;
-        
-    
     if(data == 0x0D){
         stateTemp = DECODIFICAR;
         datos_recepcion_uart1[ ubicacion_actual ] = '\0';
@@ -40,7 +38,6 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
         datos_recepcion_uart1[ ubicacion_actual ] = data;
         ubicacion_actual++;
     }
-
 }
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )

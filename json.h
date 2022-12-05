@@ -3,6 +3,9 @@
 #include "mcc_generated_files/uart1.h"
 
 #define MAX_CIFRA_DECIMAL 3
+#define TRAMA_JSON "trama"
+#define PASOS_JSON "pasos"
+
 
 unsigned char trama[10] = {'\0'};
 double pasos[2] = {0.0, 0.0};
@@ -153,13 +156,13 @@ unsigned char clasificar( unsigned char *Parametro ){
     unsigned char is = 0;
     switch( Parametro[0] ){
         case 't':
-            is = equals( Parametro, "trama" );
+            is = equals( Parametro, TRAMA_JSON );
             if(is == 1){
                 clase = TRAMA;
             }
             break;
-        case 'P':
-            is = equals( Parametro, "pasos" );
+        case 'p':
+            is = equals( Parametro, PASOS_JSON );
             if(is == 1){
                 clase = PASOS;
             }
