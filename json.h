@@ -1,8 +1,8 @@
 #include <math.h>
-
+#include <stdlib.h>
 #include "mcc_generated_files/uart1.h"
 
-#define MAX_CIFRA_DECIMAL 3
+#define MAX_CIFRA_DECIMAL 2
 #define TRAMA_JSON "trama"
 #define PASOS_JSON "pasos"
 
@@ -212,7 +212,6 @@ void obtener_pasos(double *Pasos, unsigned char *Valores){
         
     }
     
-    
     pasos[0] = toFloat( valor1, MAX_CIFRA_DECIMAL );
     pasos[1] = toFloat( valor2, MAX_CIFRA_DECIMAL );
     
@@ -222,18 +221,26 @@ void obtener_pasos(double *Pasos, unsigned char *Valores){
 
 double toFloat(unsigned char *value, unsigned char maxima_cifra_decimal ){
     unsigned char longitudValue = longitudString( value );
-    char i;
-    char n= -1 *maxima_cifra_decimal, accion = 1;
+    char i = 0;
+    char n=1, accion = 1;
     double number = 0.0;
-    for(i=longitudValue-1; i>=0; i--){
+    while(value[i] != '\0'){
         if(value[i] == '.'){
-            continue;
-        }else{
-            number += (double)( value[i] - 0x30 ) * ( powf( 10.0, n ) );
+            accion = 0;
+        }
+        else if(accion){
+            number = number * 10.0 + (double)(value[i] - 0x30);
+        }
+        else if(n <= maxima_cifra_decimal){
+            number += (double)( value[i] - 0x30 ) * ( powf( 10.0, -1 * n) );
             n++;
+        }
+        else{
+            break;
         }
         
     }
+    
  
     return number;
 }
