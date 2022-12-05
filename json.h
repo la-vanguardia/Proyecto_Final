@@ -222,7 +222,7 @@ void obtener_pasos(double *Pasos, unsigned char *Valores){
 double toFloat(unsigned char *value, unsigned char maxima_cifra_decimal ){
     unsigned char longitudValue = longitudString( value );
     char i = 0;
-    char n=1, accion = 1;
+    unsigned char n=1, accion = 1;
     double number = 0.0;
     while(value[i] != '\0'){
         if(value[i] == '.'){
@@ -238,7 +238,7 @@ double toFloat(unsigned char *value, unsigned char maxima_cifra_decimal ){
         else{
             break;
         }
-        
+        i++;
     }
     
  
