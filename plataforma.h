@@ -44,7 +44,7 @@ void sendContinue(){
 
 void sendConfig(double h, double k){
     unsigned char configMessage[30] = {'\0'};
-    sprintf(configMessage, '%s-%.2f-%.2f', CONFIG_COMMAND, h, k);
+    sprintf(configMessage, 'CONFIG-%.2f-%.2f', h, k);
     enviarMensaje(configMessage);
     sendMessageToPlatform(configMessage);
     
