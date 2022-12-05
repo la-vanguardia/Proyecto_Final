@@ -136,12 +136,13 @@ void aComenzarMedicion(){
 }
 
 void aFrenarMedicion(){
-    
     sendStop();
     stateTemp = ESPERAR;
 }
 
 void aConfigurarMedicion(){
+    h = pasos[0];
+    k = pasos[1];
     //TODO: envia a la plataforma los pasos h (eje x) y k (eje y
     stateTemp = ESPERAR;
     sendConfig(h, k);
