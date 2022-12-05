@@ -80,7 +80,6 @@ void eClasificar(){
         resultado = StopDecodificado;
     }
     else if( config ){
-        enviarMensaje("CONFIGURANDO...");
         resultado = ConfigDecodificado;
     }
     trmaUC = resultado;
@@ -118,7 +117,6 @@ void aClasificar(){
             aFrenarMedicion();
             break;
         case ConfigDecodificado:
-            enviarMensaje("MANDANDO COSITAS!");
             aConfigurarMedicion();
             break;
         case ErrorDecodificado:
