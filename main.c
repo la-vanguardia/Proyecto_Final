@@ -47,7 +47,7 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
     if(data == 0x0D){
         uart3Data[uart3Counter] = '\0';
         updateX = equals(uart3Data, MEASURE_X_COMMAND);
-        updateY = equals(uart3Data, MEASURE_Y_COMMAND)
+        updateY = equals(uart3Data, MEASURE_Y_COMMAND);
         enviarMensaje(uart3Data);
         if (updateX || updateY){
             stateTemp = MEDIR;
