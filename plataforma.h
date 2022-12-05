@@ -1,6 +1,7 @@
 
 #include "mcc_generated_files/uart3.h"
 
+
 //Aca se encuentran las funciones para comunicacion de la plataforma
 
 #define STOP_COMMAND "STOP"
@@ -42,8 +43,9 @@ void sendContinue(){
 }
 
 void sendConfig(double h, double k){
-    unsigned char configMessage[20] = {'\0'};
+    unsigned char configMessage[30] = {'\0'};
     sprintf(configMessage, '%s-%.2f-%.2f', CONFIG_COMMAND, h, k);
+    enviarMensaje(configMessage);
     sendMessageToPlatform(configMessage);
     
 }
