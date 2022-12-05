@@ -120,20 +120,16 @@ void split( unsigned char *Parametros, unsigned char *Valores, unsigned char *St
                     done = 0;
                 }
                 break;
-            case ' ':
-                break;
             case '[':
                 is_vector = 1;
                 break;
             case ']':
                 is_vector = 0;
                 break;
+            case ' ':
             case '\"':
-                break;
             case '\'':
-                break;
             case '{':
-                break;
             case '}':
                 break;
             default:
