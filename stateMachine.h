@@ -29,8 +29,6 @@ double x, y, h, k;
 
 unsigned char trmaUC;
 
-
-
 void stateMachineSensor();
 
 void eDecodificar();
@@ -86,8 +84,13 @@ void eClasificar(){
 }
 
 void eMedir(){
-    x += h;
-    y += k;
+    if(updateX){
+        x += h;
+    }
+    if(updateY){
+        y += k;
+    }
+    
     trama_t mediciones;
     unsigned char json[70] = {'\0'};
     

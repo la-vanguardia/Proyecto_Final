@@ -9,9 +9,11 @@
 #define CONFIG_COMMAND "CONFIG"
 #define CONTINUE_COMMAND "CONTINUE"
 
-#define MEASURE_COMMAND "MEASURE"
+#define MEASURE_X_COMMAND "MEASURE_X"
+#define MEASURE_Y_COMMAND "MEASURE_Y"
 
-
+unsigned char updateY = 1;
+unsigned char updateX = 1;
 
 void sendMessageToPlatform(unsigned char* message);
 void sendStart();
