@@ -84,7 +84,7 @@ void eClasificar(){
 }
 
 void eMedir(){
-    if(updateX){
+    if(updateX || measureEnd){
         x += h;
     }
     if(updateY){
@@ -99,7 +99,7 @@ void eMedir(){
     
     
     mediciones.ubicacion = ubicacion;
-    
+    mediciones.end = measureEnd;
     temp[0] = leerTemperatura( SENSOR_1 );
     mediciones.Temperatura = temp;
     enviarTemp( mediciones );

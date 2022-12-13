@@ -12,10 +12,9 @@ double pasos[2] = {0.0, 0.0};
 
 
 typedef struct trama_enviar{
-    unsigned char *trama;
-    unsigned char reversa;
     double *ubicacion;
     double *Temperatura;
+    unsigned char end;
 }trama_t;
 
 typedef struct trama_recibir{
@@ -53,7 +52,7 @@ unsigned char longitudString(unsigned char *vect){
 }
 
 void crearJSONString(trama_t trama, unsigned char *json){
-    sprintf(json, "{ubicacion: [%.2f, %.2f], temperatura: [%.3f]}", trama.ubicacion[0], trama.ubicacion[1], trama.Temperatura[0] );
+    sprintf(json, "{ubicacion: [%.2f, %.2f], temperatura: [%.3f], end: %c}", trama.ubicacion[0], trama.ubicacion[1], trama.Temperatura[0], trama.end );
 }
 
 void decodificarJSONString(unsigned char *json){

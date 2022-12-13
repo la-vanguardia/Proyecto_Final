@@ -11,9 +11,13 @@
 
 #define MEASURE_X_COMMAND "MEASURE_X"
 #define MEASURE_Y_COMMAND "MEASURE_Y"
+#define MEASURE_INIT_COMMAND "MEASURE_INIT"
+#define MEASURE_END_COMMAND "MEASURE_END"
 
-unsigned char updateY = 1;
-unsigned char updateX = 1;
+unsigned char updateY = 0;
+unsigned char updateX = 0;
+unsigned char measureInit = 0;
+unsigned char measureEnd = 0;
 
 void sendMessageToPlatform(unsigned char* message);
 void sendStart();

@@ -48,8 +48,11 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
         uart3Data[uart3Counter] = '\0';
         updateX = equals(uart3Data, MEASURE_X_COMMAND);
         updateY = equals(uart3Data, MEASURE_Y_COMMAND);
+        measureInit = equals(uart3Data, MEASURE_INIT_COMMAND);
+        measureEnd = equals(uart3Data, MEASURE_END_COMMAND);
+
         enviarMensaje(uart3Data);
-        if (updateX || updateY){
+        if (updateX || updateY || measureEnd || measureInit){
             stateTemp = MEDIR;
         }
 
