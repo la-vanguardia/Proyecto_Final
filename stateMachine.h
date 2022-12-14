@@ -9,6 +9,8 @@
 #define START "START"
 #define STOP  "STOP"
 #define CONFIG  "CONFIG"
+#define CHANGE_DIRETCION -1
+
 
 enum states{
     ESPERAR = 0,
@@ -24,7 +26,9 @@ enum tramasClasificadas{
     ErrorDecodificado
 };
 
+
 unsigned char stateTemp = ESPERAR;
+char moveDirection = 1;
 double x, y, h, k;
 
 unsigned char trmaUC;
@@ -85,7 +89,7 @@ void eClasificar(){
 
 void eMedir(){
     if(updateX || measureEnd){
-        x += h;
+        x += moveDirection * h;
     }
     if(updateY){
         y += k;

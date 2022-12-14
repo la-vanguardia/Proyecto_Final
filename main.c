@@ -3,6 +3,7 @@
 #define TEMPOBJ 0x07
 
 
+
 #include "mcc_generated_files/system.h"
 #include "mcc_generated_files/uart1.h"
 
@@ -51,7 +52,10 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
         measureInit = equals(uart3Data, MEASURE_INIT_COMMAND);
         measureEnd = equals(uart3Data, MEASURE_END_COMMAND);
 
-        enviarMensaje(uart3Data);
+        if(updateY){
+            moveDirection *= CHANGE_DIRETCION;
+        }
+
         if (updateX || updateY || measureEnd || measureInit){
             stateTemp = MEDIR;
         }
