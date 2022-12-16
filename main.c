@@ -74,7 +74,6 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
-    
     while (1)
     {
         stateMachineSensor();

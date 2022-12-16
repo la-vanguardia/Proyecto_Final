@@ -34,6 +34,7 @@ void sendMessageToPlatform(unsigned char* message){
         UART3_Write( message[ i ] );
     }
     UART3_Write(0x0D);
+    UART3_Write('\n');
 }
 
 void sendStart(){

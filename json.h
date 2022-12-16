@@ -52,7 +52,7 @@ unsigned char longitudString(unsigned char *vect){
 }
 
 void crearJSONString(trama_t trama, unsigned char *json){
-    sprintf(json, "{ubicacion: [%.2f, %.2f], temperatura: [%.3f], end: %c}", trama.ubicacion[0], trama.ubicacion[1], trama.Temperatura[0], trama.end );
+    sprintf(json, "{\"ubicacion\": [%.2f, %.2f], \"temperatura\": [%.3f], \"end\": %d}", trama.ubicacion[0], trama.ubicacion[1], trama.Temperatura[0], trama.end );
 }
 
 void decodificarJSONString(unsigned char *json){

@@ -119,6 +119,7 @@ void aClasificar(){
     switch( trmaUC ){
         case StartDecodificado:
             aComenzarMedicion();
+            
             break;
         case StopDecodificado:
             aFrenarMedicion();
