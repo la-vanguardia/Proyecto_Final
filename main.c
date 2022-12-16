@@ -15,20 +15,26 @@
 #include "stateMachine.h"
 
 
+unsigned char flushCounter = 0;
 unsigned char uart3Data[50] = {'\0'}, uart3Counter = 0;
 
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _T1Interrupt (  )
 {
     IFS0bits.T1IF = 0;
-    contador++;
+    flushCounter++;
+    if(flushCounter >= 100){
+        //Se elimina la basura del serial
+        T1CONbits.TON = 0;
+        ubicacion_actual = 0;
+    }
     
-    //TODO: analizar eliminacion del T1
 }
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
 {
     IFS0bits.U1RXIF = 0;
+    T1CONbits.TON = 0;
     unsigned char data = U1RXREG;
     if(data == 0x0D){
         stateTemp = DECODIFICAR;
@@ -38,7 +44,11 @@ void __attribute__ ( ( interrupt, no_auto_psv ) ) _U1RXInterrupt( void )
     else{
         datos_recepcion_uart1[ ubicacion_actual ] = data;
         ubicacion_actual++;
+        T1CONbits.TON = 1;
+        flushCounter = 0;
     }
+    
+    
 }
 
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _U3RXInterrupt( void )
@@ -74,8 +84,9 @@ int main(void)
     // initialize the device
     SYSTEM_Initialize();
     configurarI2C();
+    
     while (1)
-    {
+    { 
         stateMachineSensor();
     }
     return 1; 
